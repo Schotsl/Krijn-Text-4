@@ -26,8 +26,7 @@ namespace Krijn_Text_4
 
         private void text_change(object sender, EventArgs e)
         {
-            string textArea = this.textArea.Text;
-            File.WriteAllText("text.txt", this.textArea.Text);
+ 
         }
     }
 }
