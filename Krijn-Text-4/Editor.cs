@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Krijn_Text_4
 {
-    public partial class Editor : Form
+    public partial class Editor : MetroFramework.Forms.MetroForm
     {
         public Editor()
         {
@@ -70,6 +70,11 @@ namespace Krijn_Text_4
                 directoryNode.Nodes.Add(new TreeNode(file.Name));
 
             return directoryNode;
+        }
+
+        private void Editor_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

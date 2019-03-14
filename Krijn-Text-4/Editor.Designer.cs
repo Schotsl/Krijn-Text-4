@@ -33,19 +33,19 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.projectTree = new System.Windows.Forms.TreeView();
             this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addProjectFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.projectTree = new System.Windows.Forms.TreeView();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textArea
             // 
             this.textArea.BackColor = System.Drawing.SystemColors.Window;
-            this.textArea.Location = new System.Drawing.Point(155, 26);
+            this.textArea.Location = new System.Drawing.Point(166, 95);
             this.textArea.Margin = new System.Windows.Forms.Padding(2);
             this.textArea.Name = "textArea";
-            this.textArea.Size = new System.Drawing.Size(581, 330);
+            this.textArea.Size = new System.Drawing.Size(661, 353);
             this.textArea.TabIndex = 0;
             this.textArea.Text = "";
             // 
@@ -54,9 +54,9 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.projectToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(20, 60);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(747, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(807, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -72,23 +72,16 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
-            // 
-            // projectTree
-            // 
-            this.projectTree.Location = new System.Drawing.Point(12, 27);
-            this.projectTree.Name = "projectTree";
-            this.projectTree.Size = new System.Drawing.Size(138, 327);
-            this.projectTree.TabIndex = 5;
             // 
             // projectToolStripMenuItem
             // 
@@ -101,15 +94,22 @@
             // addProjectFolderToolStripMenuItem
             // 
             this.addProjectFolderToolStripMenuItem.Name = "addProjectFolderToolStripMenuItem";
-            this.addProjectFolderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addProjectFolderToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.addProjectFolderToolStripMenuItem.Text = "Add Project Folder";
             this.addProjectFolderToolStripMenuItem.Click += new System.EventHandler(this.addProjectFolderToolStripMenuItem_Click);
+            // 
+            // projectTree
+            // 
+            this.projectTree.Location = new System.Drawing.Point(20, 95);
+            this.projectTree.Name = "projectTree";
+            this.projectTree.Size = new System.Drawing.Size(141, 353);
+            this.projectTree.TabIndex = 5;
             // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(747, 366);
+            this.ClientSize = new System.Drawing.Size(847, 460);
             this.Controls.Add(this.projectTree);
             this.Controls.Add(this.textArea);
             this.Controls.Add(this.menuStrip1);
@@ -117,6 +117,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Editor";
             this.Text = "Editor";
+            this.Load += new System.EventHandler(this.Editor_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
