@@ -18,7 +18,19 @@ namespace Krijn_Text_4
             InitializeComponent();
         }
 
-        private void save_click(object sender, EventArgs e)
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string strFileName = openFileDialog.FileName;
+                string fileText = File.ReadAllText(strFileName);
+                textArea.Text = fileText;
+            }
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialogFunction = new SaveFileDialog();
 
@@ -29,20 +41,6 @@ namespace Krijn_Text_4
                 {
                     sw.Write(textArea.Text);
                 }
-            }
-        }
-
-
-
-        private void btnOpenFile_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-
-            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                string strFileName = openFileDialog.FileName;
-                string fileText = File.ReadAllText(strFileName);
-                textArea.Text = fileText;
             }
         }
     }

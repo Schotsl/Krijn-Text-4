@@ -29,62 +29,81 @@
         private void InitializeComponent()
         {
             this.textArea = new System.Windows.Forms.RichTextBox();
-            this.save = new System.Windows.Forms.Button();
-            this.btnOpenFile = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textArea
             // 
             this.textArea.BackColor = System.Drawing.SystemColors.Window;
-            this.textArea.Location = new System.Drawing.Point(9, 33);
+            this.textArea.Location = new System.Drawing.Point(155, 26);
             this.textArea.Margin = new System.Windows.Forms.Padding(2);
             this.textArea.Name = "textArea";
-            this.textArea.Size = new System.Drawing.Size(583, 323);
+            this.textArea.Size = new System.Drawing.Size(581, 330);
             this.textArea.TabIndex = 0;
             this.textArea.Text = "";
             // 
-            // save
+            // menuStrip1
             // 
-            this.save.Location = new System.Drawing.Point(524, 7);
-            this.save.Margin = new System.Windows.Forms.Padding(2);
-            this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(67, 21);
-            this.save.TabIndex = 1;
-            this.save.Text = "Save File";
-            this.save.UseVisualStyleBackColor = true;
-            this.save.Click += new System.EventHandler(this.save_click);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(747, 24);
+            this.menuStrip1.TabIndex = 4;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // btnOpenFile
+            // fileToolStripMenuItem
             // 
-            this.btnOpenFile.Location = new System.Drawing.Point(9, 8);
-            this.btnOpenFile.Margin = new System.Windows.Forms.Padding(2);
-            this.btnOpenFile.Name = "btnOpenFile";
-            this.btnOpenFile.Size = new System.Drawing.Size(70, 21);
-            this.btnOpenFile.TabIndex = 3;
-            this.btnOpenFile.Text = "Open File";
-            this.btnOpenFile.UseVisualStyleBackColor = true;
-            this.btnOpenFile.Click += new System.EventHandler(this.btnOpenFile_Click);
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openToolStripMenuItem,
+            this.saveToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
-            this.Controls.Add(this.btnOpenFile);
-            this.Controls.Add(this.save);
+            this.ClientSize = new System.Drawing.Size(747, 366);
             this.Controls.Add(this.textArea);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Editor";
             this.Text = "Editor";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.RichTextBox textArea;
-        private System.Windows.Forms.Button save;
-        private System.Windows.Forms.Button btnOpenFile;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
     }
 }
 
