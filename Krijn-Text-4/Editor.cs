@@ -28,5 +28,18 @@ namespace Krijn_Text_4
         {
 
         }
+
+        private void btnOpenFile_Click(object sender, EventArgs e)
+        {
+            Stream myStream;
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string strFileName = openFileDialog1.FileName;
+                string fileText = File.ReadAllText(strFileName);
+                textArea.Text = fileText;
+            }
+        }
     }
 }

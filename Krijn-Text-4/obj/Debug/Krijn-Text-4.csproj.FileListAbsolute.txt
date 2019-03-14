@@ -8,3 +8,13 @@ C:\Users\sjors\Google Drive\Ubuntu\var\www\Personal\yeet\Krijn-Text-4\bin\Debug\
 C:\Users\sjors\Google Drive\Ubuntu\var\www\Personal\yeet\Krijn-Text-4\bin\Debug\Krijn-Text-4.pdb
 C:\Users\sjors\Google Drive\Ubuntu\var\www\Personal\yeet\Krijn-Text-4\obj\Debug\Krijn-Text-4.exe
 C:\Users\sjors\Google Drive\Ubuntu\var\www\Personal\yeet\Krijn-Text-4\obj\Debug\Krijn-Text-4.pdb
+C:\KrijnEditor\Krijn-Text-4\bin\Debug\Krijn-Text-4.exe.config
+C:\KrijnEditor\Krijn-Text-4\bin\Debug\Krijn-Text-4.exe
+C:\KrijnEditor\Krijn-Text-4\bin\Debug\Krijn-Text-4.pdb
+C:\KrijnEditor\Krijn-Text-4\obj\Debug\Krijn-Text-4.csprojAssemblyReference.cache
+C:\KrijnEditor\Krijn-Text-4\obj\Debug\Krijn_Text_4.Editor.resources
+C:\KrijnEditor\Krijn-Text-4\obj\Debug\Krijn_Text_4.Properties.Resources.resources
+C:\KrijnEditor\Krijn-Text-4\obj\Debug\Krijn-Text-4.csproj.GenerateResource.cache
+C:\KrijnEditor\Krijn-Text-4\obj\Debug\Krijn-Text-4.csproj.CoreCompileInputs.cache
+C:\KrijnEditor\Krijn-Text-4\obj\Debug\Krijn-Text-4.exe
+C:\KrijnEditor\Krijn-Text-4\obj\Debug\Krijn-Text-4.pdb
