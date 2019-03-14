@@ -21,12 +21,7 @@ namespace Krijn_Text_4
         private void save_click(object sender, EventArgs e)
         {
             string textArea = this.textArea.Text;
-            File.WriteAllText("text.txt", this.textArea.Text);
-        }
-
-        private void text_change(object sender, EventArgs e)
-        {
- 
+            File.WriteAllText(name.Text, this.textArea.Text);
         }
     }
 }
