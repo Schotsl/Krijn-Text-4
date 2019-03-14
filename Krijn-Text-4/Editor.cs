@@ -43,5 +43,33 @@ namespace Krijn_Text_4
                 }
             }
         }
+
+        private void addProjectFolderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK);
+                ListDirectory(projectTree, fbd.SelectedPath);
+        }
+
+        private void ListDirectory(TreeView treeView, string path)
+        {
+            treeView.Nodes.Clear();
+            var rootDirectoryInfo = new DirectoryInfo(path);
+
+            treeView.Nodes.Add(projectDirectory(rootDirectoryInfo));
+        }
+
+        private static TreeNode projectDirectory(DirectoryInfo directoryInfo)
+        {
+            var directoryNode = new TreeNode(directoryInfo.Name);
+
+            foreach (var directory in directoryInfo.GetDirectories())
+                directoryNode.Nodes.Add(projectDirectory(directory));
+
+            foreach (var file in directoryInfo.GetFiles())
+                directoryNode.Nodes.Add(new TreeNode(file.Name));
+
+            return directoryNode;
+        }
     }
 }
