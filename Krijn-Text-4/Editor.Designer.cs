@@ -121,6 +121,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Editor";
             this.Text = "Editor";
+            this.TransparencyKey = System.Drawing.Color.LightGreen;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
