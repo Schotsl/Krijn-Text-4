@@ -20,23 +20,27 @@ namespace Krijn_Text_4
 
         private void save_click(object sender, EventArgs e)
         {
-            string textArea = this.textArea.Text;
-            File.WriteAllText(name.Text, this.textArea.Text);
+            SaveFileDialog saveFileDialogFunction = new SaveFileDialog();
+
+            if (saveFileDialogFunction.ShowDialog() == DialogResult.OK)
+            {
+                using (Stream save = File.Open(saveFileDialogFunction.FileName, FileMode.CreateNew))
+                using (StreamWriter sw = new StreamWriter(save))
+                {
+                    sw.Write(textArea.Text);
+                }
+            }
         }
 
-        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
-        {
 
-        }
 
         private void btnOpenFile_Click(object sender, EventArgs e)
         {
-            Stream myStream;
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            OpenFileDialog openFileDialog = new OpenFileDialog();
 
-            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                string strFileName = openFileDialog1.FileName;
+                string strFileName = openFileDialog.FileName;
                 string fileText = File.ReadAllText(strFileName);
                 textArea.Text = fileText;
             }

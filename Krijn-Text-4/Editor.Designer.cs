@@ -30,7 +30,6 @@
         {
             this.textArea = new System.Windows.Forms.RichTextBox();
             this.save = new System.Windows.Forms.Button();
-            this.name = new System.Windows.Forms.TextBox();
             this.btnOpenFile = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -46,22 +45,14 @@
             // 
             // save
             // 
-            this.save.Location = new System.Drawing.Point(535, 7);
+            this.save.Location = new System.Drawing.Point(524, 7);
             this.save.Margin = new System.Windows.Forms.Padding(2);
             this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(56, 21);
+            this.save.Size = new System.Drawing.Size(67, 21);
             this.save.TabIndex = 1;
-            this.save.Text = "Save";
+            this.save.Text = "Save File";
             this.save.UseVisualStyleBackColor = true;
             this.save.Click += new System.EventHandler(this.save_click);
-            // 
-            // name
-            // 
-            this.name.Location = new System.Drawing.Point(372, 8);
-            this.name.Margin = new System.Windows.Forms.Padding(2);
-            this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(159, 20);
-            this.name.TabIndex = 2;
             // 
             // btnOpenFile
             // 
@@ -80,14 +71,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.btnOpenFile);
-            this.Controls.Add(this.name);
             this.Controls.Add(this.save);
             this.Controls.Add(this.textArea);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Editor";
             this.Text = "Editor";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -95,7 +84,6 @@
 
         private System.Windows.Forms.RichTextBox textArea;
         private System.Windows.Forms.Button save;
-        private System.Windows.Forms.TextBox name;
         private System.Windows.Forms.Button btnOpenFile;
     }
 }
