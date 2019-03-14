@@ -1,0 +1,8 @@
+# Ignores gitflow
+gitflow/
+
+#Ignores /vs and subdirectories
+.vs/
+
+#Ignores this
+Krijn-Text-4/obj/Debug/Krijn-Text-4.csprojAssemblyReference.cache
