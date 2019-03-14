@@ -28,35 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.textArea = new System.Windows.Forms.RichTextBox();
+            this.save = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // richTextBox1
+            // textArea
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 41);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(776, 397);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.textArea.BackColor = System.Drawing.SystemColors.Window;
+            this.textArea.Location = new System.Drawing.Point(12, 41);
+            this.textArea.Name = "text";
+            this.textArea.Size = new System.Drawing.Size(776, 397);
+            this.textArea.TabIndex = 0;
+            this.textArea.Text = "";
+            this.textArea.TextChanged += new System.EventHandler(this.text_change);
             // 
-            // button1
+            // save
             // 
-            this.button1.Location = new System.Drawing.Point(713, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.save.Location = new System.Drawing.Point(713, 12);
+            this.save.Name = "save";
+            this.save.TabIndex = 1;
+            this.save.Text = "Save";
+            this.save.UseVisualStyleBackColor = true;
+            this.save.Click += new System.EventHandler(this.save_click);
             // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.save);
+            this.Controls.Add(this.textArea);
             this.Name = "Editor";
             this.Text = "Editor";
             this.ResumeLayout(false);
@@ -65,8 +66,8 @@
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RichTextBox textArea;
+        private System.Windows.Forms.Button save;
     }
 }
 
