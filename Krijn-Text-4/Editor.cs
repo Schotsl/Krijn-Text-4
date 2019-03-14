@@ -47,7 +47,7 @@ namespace Krijn_Text_4
         private void addProjectFolderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
-            if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK);
+            if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 ListDirectory(projectTree, fbd.SelectedPath);
         }
 
@@ -70,11 +70,6 @@ namespace Krijn_Text_4
                 directoryNode.Nodes.Add(new TreeNode(file.Name));
 
             return directoryNode;
-        }
-
-        private void Editor_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

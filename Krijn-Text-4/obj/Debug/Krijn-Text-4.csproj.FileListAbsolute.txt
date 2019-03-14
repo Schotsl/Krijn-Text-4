@@ -18,3 +18,7 @@ C:\KrijnEditor\Krijn-Text-4\obj\Debug\Krijn-Text-4.csproj.GenerateResource.cache
 C:\KrijnEditor\Krijn-Text-4\obj\Debug\Krijn-Text-4.csproj.CoreCompileInputs.cache
 C:\KrijnEditor\Krijn-Text-4\obj\Debug\Krijn-Text-4.exe
 C:\KrijnEditor\Krijn-Text-4\obj\Debug\Krijn-Text-4.pdb
+C:\KrijnEditor\Krijn-Text-4\bin\Debug\MetroFramework.Design.dll
+C:\KrijnEditor\Krijn-Text-4\bin\Debug\MetroFramework.dll
+C:\KrijnEditor\Krijn-Text-4\bin\Debug\MetroFramework.Fonts.dll
+C:\KrijnEditor\Krijn-Text-4\obj\Debug\Krijn-Text-4.csproj.CopyComplete

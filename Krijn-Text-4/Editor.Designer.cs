@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Editor));
             this.textArea = new System.Windows.Forms.RichTextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,6 +45,8 @@
             this.textArea.BackColor = System.Drawing.SystemColors.Window;
             this.textArea.Location = new System.Drawing.Point(166, 95);
             this.textArea.Margin = new System.Windows.Forms.Padding(2);
+            this.textArea.MaximumSize = new System.Drawing.Size(1000, 1000);
+            this.textArea.MinimumSize = new System.Drawing.Size(661, 353);
             this.textArea.Name = "textArea";
             this.textArea.Size = new System.Drawing.Size(661, 353);
             this.textArea.TabIndex = 0;
@@ -113,11 +116,11 @@
             this.Controls.Add(this.projectTree);
             this.Controls.Add(this.textArea);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Editor";
             this.Text = "Editor";
-            this.Load += new System.EventHandler(this.Editor_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
