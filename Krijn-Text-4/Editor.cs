@@ -23,5 +23,10 @@ namespace Krijn_Text_4
             string textArea = this.textArea.Text;
             File.WriteAllText(name.Text, this.textArea.Text);
         }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
     }
 }
