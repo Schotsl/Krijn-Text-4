@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Editor));
             this.textArea = new System.Windows.Forms.RichTextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -38,7 +39,10 @@
             this.addProjectFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.projectTree = new System.Windows.Forms.TreeView();
             this.textBox4 = new System.Windows.Forms.TextBox();
+            this.projectTreeContextMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
+            this.openProjectFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
+            this.projectTreeContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // textArea
@@ -78,7 +82,7 @@
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -86,7 +90,7 @@
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -109,6 +113,7 @@
             // 
             // projectTree
             // 
+            this.projectTree.ContextMenuStrip = this.projectTreeContextMenu;
             this.projectTree.Location = new System.Drawing.Point(20, 95);
             this.projectTree.Name = "projectTree";
             this.projectTree.Size = new System.Drawing.Size(141, 326);
@@ -120,6 +125,20 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(141, 20);
             this.textBox4.TabIndex = 9;
+            // 
+            // projectTreeContextMenu
+            // 
+            this.projectTreeContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openProjectFolderToolStripMenuItem});
+            this.projectTreeContextMenu.Name = "projectTreeContextMenu";
+            this.projectTreeContextMenu.Size = new System.Drawing.Size(181, 48);
+            // 
+            // openProjectFolderToolStripMenuItem
+            // 
+            this.openProjectFolderToolStripMenuItem.Name = "openProjectFolderToolStripMenuItem";
+            this.openProjectFolderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openProjectFolderToolStripMenuItem.Text = "Open Project Folder";
+            this.openProjectFolderToolStripMenuItem.Click += new System.EventHandler(this.openProjectFolderToolStripMenuItem_Click);
             // 
             // Editor
             // 
@@ -138,6 +157,7 @@
             this.TransparencyKey = System.Drawing.Color.LightGreen;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.projectTreeContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,6 +174,8 @@
         private System.Windows.Forms.ToolStripMenuItem addProjectFolderToolStripMenuItem;
         private System.Windows.Forms.TreeView projectTree;
         private System.Windows.Forms.TextBox textBox4;
+        private MetroFramework.Controls.MetroContextMenu projectTreeContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem openProjectFolderToolStripMenuItem;
     }
 }
 

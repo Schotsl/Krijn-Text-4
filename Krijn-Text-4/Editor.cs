@@ -95,5 +95,12 @@ namespace Krijn_Text_4
                 }
             }
         }
+
+        private void openProjectFolderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                ListDirectory(projectTree, fbd.SelectedPath);
+        }
     }
 }
