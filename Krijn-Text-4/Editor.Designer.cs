@@ -41,6 +41,7 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.projectTreeContextMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.openProjectFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnOpenSelectedFile = new MetroFramework.Controls.MetroButton();
             this.menuStrip1.SuspendLayout();
             this.projectTreeContextMenu.SuspendLayout();
             this.SuspendLayout();
@@ -114,9 +115,9 @@
             // projectTree
             // 
             this.projectTree.ContextMenuStrip = this.projectTreeContextMenu;
-            this.projectTree.Location = new System.Drawing.Point(20, 95);
+            this.projectTree.Location = new System.Drawing.Point(20, 124);
             this.projectTree.Name = "projectTree";
-            this.projectTree.Size = new System.Drawing.Size(141, 326);
+            this.projectTree.Size = new System.Drawing.Size(141, 297);
             this.projectTree.TabIndex = 5;
             // 
             // textBox4
@@ -131,20 +132,31 @@
             this.projectTreeContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openProjectFolderToolStripMenuItem});
             this.projectTreeContextMenu.Name = "projectTreeContextMenu";
-            this.projectTreeContextMenu.Size = new System.Drawing.Size(181, 48);
+            this.projectTreeContextMenu.Size = new System.Drawing.Size(180, 26);
             // 
             // openProjectFolderToolStripMenuItem
             // 
             this.openProjectFolderToolStripMenuItem.Name = "openProjectFolderToolStripMenuItem";
-            this.openProjectFolderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openProjectFolderToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.openProjectFolderToolStripMenuItem.Text = "Open Project Folder";
             this.openProjectFolderToolStripMenuItem.Click += new System.EventHandler(this.openProjectFolderToolStripMenuItem_Click);
+            // 
+            // btnOpenSelectedFile
+            // 
+            this.btnOpenSelectedFile.Location = new System.Drawing.Point(20, 95);
+            this.btnOpenSelectedFile.Name = "btnOpenSelectedFile";
+            this.btnOpenSelectedFile.Size = new System.Drawing.Size(141, 23);
+            this.btnOpenSelectedFile.TabIndex = 11;
+            this.btnOpenSelectedFile.Text = "Open Selected File";
+            this.btnOpenSelectedFile.UseSelectable = true;
+            this.btnOpenSelectedFile.Click += new System.EventHandler(this.btnOpenSelectedFile_Click);
             // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(847, 460);
+            this.Controls.Add(this.btnOpenSelectedFile);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.projectTree);
             this.Controls.Add(this.textArea);
@@ -176,6 +188,7 @@
         private System.Windows.Forms.TextBox textBox4;
         private MetroFramework.Controls.MetroContextMenu projectTreeContextMenu;
         private System.Windows.Forms.ToolStripMenuItem openProjectFolderToolStripMenuItem;
+        private MetroFramework.Controls.MetroButton btnOpenSelectedFile;
     }
 }
 
