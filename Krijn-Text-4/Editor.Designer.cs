@@ -38,9 +38,9 @@
             this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addProjectFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.projectTree = new System.Windows.Forms.TreeView();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.projectTreeContextMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.openProjectFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.btnOpenSelectedFile = new MetroFramework.Controls.MetroButton();
             this.menuStrip1.SuspendLayout();
             this.projectTreeContextMenu.SuspendLayout();
@@ -120,13 +120,6 @@
             this.projectTree.Size = new System.Drawing.Size(141, 297);
             this.projectTree.TabIndex = 5;
             // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(20, 427);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(141, 20);
-            this.textBox4.TabIndex = 9;
-            // 
             // projectTreeContextMenu
             // 
             this.projectTreeContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -140,6 +133,13 @@
             this.openProjectFolderToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.openProjectFolderToolStripMenuItem.Text = "Open Project Folder";
             this.openProjectFolderToolStripMenuItem.Click += new System.EventHandler(this.openProjectFolderToolStripMenuItem_Click);
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(20, 427);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(141, 20);
+            this.textBox4.TabIndex = 9;
             // 
             // btnOpenSelectedFile
             // 
@@ -165,8 +165,9 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Editor";
-            this.Text = "Editor";
+            this.Text = "Krijn";
             this.TransparencyKey = System.Drawing.Color.LightGreen;
+            this.Load += new System.EventHandler(this.Editor_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.projectTreeContextMenu.ResumeLayout(false);

@@ -131,5 +131,10 @@ namespace Krijn_Text_4
             MessageBox.Show(filePath + "\\" + TreeNodeName);
             textArea.Text = filePath + "\\" + TreeNodeName;
         }
+
+        private void Editor_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
