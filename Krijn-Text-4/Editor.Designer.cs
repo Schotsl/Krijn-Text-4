@@ -167,7 +167,6 @@
             this.Name = "Editor";
             this.Text = "Krijn";
             this.TransparencyKey = System.Drawing.Color.LightGreen;
-            this.Load += new System.EventHandler(this.Editor_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.projectTreeContextMenu.ResumeLayout(false);

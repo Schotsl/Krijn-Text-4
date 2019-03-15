@@ -13,15 +13,10 @@ namespace Krijn_Text_4
 {
     public partial class Editor : MetroFramework.Forms.MetroForm
     {
-        private static string filePath;
 
         public Editor()
         {
             InitializeComponent();
-
-           filePath = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
-            filePath = Path.GetDirectoryName(filePath);
-            filePath = filePath.Substring(6);
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -56,8 +51,8 @@ namespace Krijn_Text_4
 
         private void addProjectFolderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
             
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
             if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 ListDirectory(projectTree, fbd.SelectedPath);
         }
@@ -127,9 +122,11 @@ namespace Krijn_Text_4
 
         private void btnOpenSelectedFile_Click(object sender, EventArgs e)
         {
+            string startPath = @"C:\";
             string TreeNodeName = projectTree.SelectedNode.ToString().Replace("TreeNode: ", String.Empty);
-            MessageBox.Show(filePath + "\\" + TreeNodeName);
-            textArea.Text = filePath + "\\" + TreeNodeName;
+            string pathToFile = startPath + projectTree.SelectedNode.FullPath;
+            MessageBox.Show(pathToFile);
+            textArea.Text = File.ReadAllText(pathToFile);
         }
     }
 }
