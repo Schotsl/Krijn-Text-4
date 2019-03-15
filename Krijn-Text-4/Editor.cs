@@ -88,10 +88,25 @@ namespace Krijn_Text_4
                 stringLength ++;
                 stringLength += singleWord.Length;
 
-                textBox4.Text = startWord.ToString() + " " + stringLength.ToString() + caretLocation.ToString();
                 if (stringLength > caretLocation && caretLocation <= stringLength)
                 {
-                    textBox4.Text = singleWord;
+                    //Should be moved to an external file
+                    string[] predictionArray = new string[4];
+                    predictionArray[0] = "html";
+                    predictionArray[1] = "body";
+                    predictionArray[2] = "head";
+                    predictionArray[3] = "div";
+
+                    foreach (string predictionString in predictionArray)
+                    {
+                        if (singleWord.Length > 0)
+                        {
+                            if (predictionString.Contains(singleWord))
+                            {
+                                textBox4.Text = predictionString;
+                            }
+                        }
+                    }
                 }
             }
         }
