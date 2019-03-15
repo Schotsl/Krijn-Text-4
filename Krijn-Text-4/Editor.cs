@@ -36,6 +36,10 @@ namespace Krijn_Text_4
 
             if (saveFileDialogFunction.ShowDialog() == DialogResult.OK)
             {
+                if (File.Exists(saveFileDialogFunction.FileName))
+                {
+                    File.Delete(saveFileDialogFunction.FileName);
+                }
                 using (Stream save = File.Open(saveFileDialogFunction.FileName, FileMode.CreateNew))
                 using (StreamWriter sw = new StreamWriter(save))
                 {
