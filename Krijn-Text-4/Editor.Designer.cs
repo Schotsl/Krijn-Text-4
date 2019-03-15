@@ -37,6 +37,7 @@
             this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addProjectFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.projectTree = new System.Windows.Forms.TreeView();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,6 +52,7 @@
             this.textArea.Size = new System.Drawing.Size(661, 353);
             this.textArea.TabIndex = 0;
             this.textArea.Text = "";
+            this.textArea.TextChanged += new System.EventHandler(this.textArea_TextChanged);
             // 
             // menuStrip1
             // 
@@ -105,14 +107,22 @@
             // 
             this.projectTree.Location = new System.Drawing.Point(20, 95);
             this.projectTree.Name = "projectTree";
-            this.projectTree.Size = new System.Drawing.Size(141, 353);
+            this.projectTree.Size = new System.Drawing.Size(141, 326);
             this.projectTree.TabIndex = 5;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(20, 427);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(141, 20);
+            this.textBox4.TabIndex = 9;
             // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(847, 460);
+            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.projectTree);
             this.Controls.Add(this.textArea);
             this.Controls.Add(this.menuStrip1);
@@ -139,6 +149,7 @@
         private System.Windows.Forms.ToolStripMenuItem projectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addProjectFolderToolStripMenuItem;
         private System.Windows.Forms.TreeView projectTree;
+        private System.Windows.Forms.TextBox textBox4;
     }
 }
 

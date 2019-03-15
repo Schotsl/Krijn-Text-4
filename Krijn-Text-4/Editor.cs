@@ -71,5 +71,25 @@ namespace Krijn_Text_4
 
             return directoryNode;
         }
+
+        private void textArea_TextChanged(object sender, EventArgs e)
+        {
+            var caretLocation = textArea.SelectionStart;
+            var stringLength = 0;
+
+            foreach (var singleWord in textArea.Text.Split(' '))
+            {
+                int startWord = stringLength;
+
+                stringLength ++;
+                stringLength += singleWord.Length;
+
+                textBox4.Text = startWord.ToString() + " " + stringLength.ToString() + caretLocation.ToString();
+                if (stringLength > caretLocation && caretLocation <= stringLength)
+                {
+                    textBox4.Text = singleWord;
+                }
+            }
+        }
     }
 }
