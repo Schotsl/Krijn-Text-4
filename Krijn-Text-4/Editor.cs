@@ -114,7 +114,7 @@ namespace Krijn_Text_4
         {
             string TreeNodeName = projectTree.SelectedNode.ToString().Replace("TreeNode: ", String.Empty);
             MessageBox.Show(filePath + "\\" + TreeNodeName);
-            textArea.Text = filePath + "\\" + TreeNodeName;
+            textArea.Text = filePath + "\T\" + TreeNodeName;
         }
     }
 }
