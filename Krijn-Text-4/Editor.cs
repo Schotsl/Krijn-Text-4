@@ -19,39 +19,11 @@ namespace Krijn_Text_4
             InitializeComponent();
         }
 
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        // ######################## Methods #############################
+
+        // Method to add project folder
+        public void mthdOpenProjectFolder()
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-
-            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                string strFileName = openFileDialog.FileName;
-                string fileText = File.ReadAllText(strFileName);
-                textArea.Text = fileText;
-            }
-        }
-
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog saveFileDialogFunction = new SaveFileDialog();
-
-            if (saveFileDialogFunction.ShowDialog() == DialogResult.OK)
-            {
-                if (File.Exists(saveFileDialogFunction.FileName))
-                {
-                    File.Delete(saveFileDialogFunction.FileName);
-                }
-                using (Stream save = File.Open(saveFileDialogFunction.FileName, FileMode.CreateNew))
-                using (StreamWriter sw = new StreamWriter(save))
-                {
-                    sw.Write(textArea.Text);
-                }
-            }
-        }
-
-        private void addProjectFolderToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 ListDirectory(projectTree, fbd.SelectedPath);
@@ -76,6 +48,59 @@ namespace Krijn_Text_4
                 directoryNode.Nodes.Add(new TreeNode(file.Name));
 
             return directoryNode;
+        }
+
+        // Method to save current file
+        public void mthdSaveFile()
+        {
+            SaveFileDialog saveFileDialogFunction = new SaveFileDialog();
+    
+
+
+            if (saveFileDialogFunction.ShowDialog() == DialogResult.OK)
+            {
+                if (File.Exists(saveFileDialogFunction.FileName))
+                {
+                    File.WriteAllText(saveFileDialogFunction.FileName, textArea.Text);
+                }
+                else if (!File.Exists(saveFileDialogFunction.FileName))
+                {
+                    using (Stream save = File.Open(saveFileDialogFunction.FileName, FileMode.CreateNew))
+                    using (StreamWriter sw = new StreamWriter(save))
+                    {
+                        sw.Write(textArea.Text);
+                    }
+                }
+            }
+        }
+        
+        // Method to open new file
+        public void mthdOpenFile()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string strFileName = openFileDialog.FileName;
+                string fileText = File.ReadAllText(strFileName);
+                textArea.Text = fileText;
+            }
+        }
+
+        // ################################# Code for visual items ########################################
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mthdOpenFile();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mthdSaveFile();
+        }
+
+        private void addProjectFolderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mthdOpenProjectFolder();
         }
 
         private void textArea_TextChanged(object sender, EventArgs e)
@@ -115,16 +140,13 @@ namespace Krijn_Text_4
 
         private void openProjectFolderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-            if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                ListDirectory(projectTree, fbd.SelectedPath);
+            mthdOpenProjectFolder();
         }
 
         private void btnOpenSelectedFile_Click(object sender, EventArgs e)
         {
-            string startPath = @"C:\";
             string TreeNodeName = projectTree.SelectedNode.ToString().Replace("TreeNode: ", String.Empty);
-            string pathToFile = startPath + projectTree.SelectedNode.FullPath;
+            string pathToFile = Path.GetFullPath(TreeNodeName);
             MessageBox.Show(pathToFile);
             textArea.Text = File.ReadAllText(pathToFile);
         }

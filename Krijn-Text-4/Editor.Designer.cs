@@ -125,12 +125,12 @@
             this.projectTreeContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openProjectFolderToolStripMenuItem});
             this.projectTreeContextMenu.Name = "projectTreeContextMenu";
-            this.projectTreeContextMenu.Size = new System.Drawing.Size(180, 26);
+            this.projectTreeContextMenu.Size = new System.Drawing.Size(181, 48);
             // 
             // openProjectFolderToolStripMenuItem
             // 
             this.openProjectFolderToolStripMenuItem.Name = "openProjectFolderToolStripMenuItem";
-            this.openProjectFolderToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.openProjectFolderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openProjectFolderToolStripMenuItem.Text = "Open Project Folder";
             this.openProjectFolderToolStripMenuItem.Click += new System.EventHandler(this.openProjectFolderToolStripMenuItem_Click);
             // 
