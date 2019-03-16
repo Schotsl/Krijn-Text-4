@@ -115,9 +115,9 @@
             // projectTree
             // 
             this.projectTree.ContextMenuStrip = this.projectTreeContextMenu;
-            this.projectTree.Location = new System.Drawing.Point(20, 124);
+            this.projectTree.Location = new System.Drawing.Point(20, 95);
             this.projectTree.Name = "projectTree";
-            this.projectTree.Size = new System.Drawing.Size(141, 297);
+            this.projectTree.Size = new System.Drawing.Size(141, 326);
             this.projectTree.TabIndex = 5;
             // 
             // projectTreeContextMenu
@@ -125,12 +125,12 @@
             this.projectTreeContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openProjectFolderToolStripMenuItem});
             this.projectTreeContextMenu.Name = "projectTreeContextMenu";
-            this.projectTreeContextMenu.Size = new System.Drawing.Size(181, 48);
+            this.projectTreeContextMenu.Size = new System.Drawing.Size(180, 26);
             // 
             // openProjectFolderToolStripMenuItem
             // 
             this.openProjectFolderToolStripMenuItem.Name = "openProjectFolderToolStripMenuItem";
-            this.openProjectFolderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openProjectFolderToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.openProjectFolderToolStripMenuItem.Text = "Open Project Folder";
             this.openProjectFolderToolStripMenuItem.Click += new System.EventHandler(this.openProjectFolderToolStripMenuItem_Click);
             // 
@@ -143,13 +143,11 @@
             // 
             // btnOpenSelectedFile
             // 
-            this.btnOpenSelectedFile.Location = new System.Drawing.Point(20, 95);
+            this.btnOpenSelectedFile.Location = new System.Drawing.Point(0, 0);
             this.btnOpenSelectedFile.Name = "btnOpenSelectedFile";
-            this.btnOpenSelectedFile.Size = new System.Drawing.Size(141, 23);
-            this.btnOpenSelectedFile.TabIndex = 11;
-            this.btnOpenSelectedFile.Text = "Open Selected File";
+            this.btnOpenSelectedFile.Size = new System.Drawing.Size(75, 23);
+            this.btnOpenSelectedFile.TabIndex = 1;
             this.btnOpenSelectedFile.UseSelectable = true;
-            this.btnOpenSelectedFile.Click += new System.EventHandler(this.btnOpenSelectedFile_Click);
             // 
             // Editor
             // 

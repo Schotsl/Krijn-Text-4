@@ -13,7 +13,6 @@ namespace Krijn_Text_4
 {
     public partial class Editor : MetroFramework.Forms.MetroForm
     {
-
         public Editor()
         {
             InitializeComponent();
@@ -27,6 +26,8 @@ namespace Krijn_Text_4
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 ListDirectory(projectTree, fbd.SelectedPath);
+
+            projectTree.ExpandAll();
         }
 
         private void ListDirectory(TreeView treeView, string path)
@@ -45,7 +46,7 @@ namespace Krijn_Text_4
                 directoryNode.Nodes.Add(projectDirectory(directory));
 
             foreach (var file in directoryInfo.GetFiles())
-                directoryNode.Nodes.Add(new TreeNode(file.Name));
+                directoryNode.Nodes.Add(new TreeNode(file.Name) { Tag = file.FullName });
 
             return directoryNode;
         }
@@ -54,23 +55,28 @@ namespace Krijn_Text_4
         public void mthdSaveFile()
         {
             SaveFileDialog saveFileDialogFunction = new SaveFileDialog();
-    
 
-
-            if (saveFileDialogFunction.ShowDialog() == DialogResult.OK)
+            try
             {
-                if (File.Exists(saveFileDialogFunction.FileName))
+                if (saveFileDialogFunction.ShowDialog() == DialogResult.OK)
                 {
-                    File.WriteAllText(saveFileDialogFunction.FileName, textArea.Text);
-                }
-                else if (!File.Exists(saveFileDialogFunction.FileName))
-                {
-                    using (Stream save = File.Open(saveFileDialogFunction.FileName, FileMode.CreateNew))
-                    using (StreamWriter sw = new StreamWriter(save))
+                    if (File.Exists(saveFileDialogFunction.FileName))
                     {
-                        sw.Write(textArea.Text);
+                        File.WriteAllText(saveFileDialogFunction.FileName, textArea.Text);
+                    }
+                    else if (!File.Exists(saveFileDialogFunction.FileName))
+                    {
+                        using (Stream save = File.Open(saveFileDialogFunction.FileName, FileMode.CreateNew))
+                        using (StreamWriter sw = new StreamWriter(save))
+                        {
+                            sw.Write(textArea.Text);
+                        }
                     }
                 }
+            }
+            catch (System.ComponentModel.Win32Exception)
+            {
+                MessageBox.Show("Failed to save file. please try again.");
             }
         }
         
@@ -79,11 +85,18 @@ namespace Krijn_Text_4
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
-            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            try
             {
-                string strFileName = openFileDialog.FileName;
-                string fileText = File.ReadAllText(strFileName);
-                textArea.Text = fileText;
+                if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    string strFileName = openFileDialog.FileName;
+                    string fileText = File.ReadAllText(strFileName);
+                    textArea.Text = fileText;
+                }
+            }
+            catch (System.ComponentModel.Win32Exception)
+            {
+                MessageBox.Show("Can't open file, please try again.");
             }
         }
 
@@ -143,12 +156,23 @@ namespace Krijn_Text_4
             mthdOpenProjectFolder();
         }
 
-        private void btnOpenSelectedFile_Click(object sender, EventArgs e)
+
+        public event TreeNodeMouseClickEventHandler NodeMouseDoubleClick;
+
+        //In the works, pls help if u can. This should work. Check error/warning list.
+        void projectTree_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            string TreeNodeName = projectTree.SelectedNode.ToString().Replace("TreeNode: ", String.Empty);
-            string pathToFile = Path.GetFullPath(TreeNodeName);
-            MessageBox.Show(pathToFile);
-            textArea.Text = File.ReadAllText(pathToFile);
+            try
+            {
+                // Look for a file extension.
+                if (e.Node.Text.Contains("."))
+                    System.Diagnostics.Process.Start(@"c:\" + e.Node.Text);
+            }
+            // If the file is not found, handle the exception and inform the user.
+            catch (System.ComponentModel.Win32Exception)
+            {
+                MessageBox.Show("File not found.");
+            }
         }
     }
 }
