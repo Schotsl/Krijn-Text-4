@@ -16,6 +16,23 @@ namespace Krijn_Text_4
         public Editor()
         {
             InitializeComponent();
+
+            string[] languages = Directory.GetFiles(@"languages/");
+
+            foreach (string language in languages)
+            {
+                //Get file name withouth path
+                var sections = language.Split('/');
+                var fileName = sections[sections.Length - 1];
+         
+                //Create menu item
+                var tempLanguage = new ToolStripMenuItem();
+                tempLanguage.CheckOnClick = true;
+                tempLanguage.Text = fileName;
+                
+                //Add menu item to dropdown menu
+                languagesToolStripMenuItem.DropDownItems.Add(tempLanguage);
+            }
         }
 
         // ######################## Methods #############################
