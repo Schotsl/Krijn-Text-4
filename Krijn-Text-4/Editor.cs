@@ -13,6 +13,10 @@ namespace Krijn_Text_4
 {
     public partial class Editor : MetroFramework.Forms.MetroForm
     {
+        public static int predirectMatch;
+        public static int predirectTyped;
+        public static string predirectString = String.Empty;
+
         public static List<string> loadedLanguage = new List<string>();
 
         public Editor()
@@ -151,23 +155,46 @@ namespace Krijn_Text_4
 
                 if (stringLength > caretLocation && caretLocation <= stringLength)
                 {
-                    //Should be moved to an external file
-                    string[] predictionArray = new string[4];
-                    predictionArray[0] = "html";
-                    predictionArray[1] = "body";
-                    predictionArray[2] = "head";
-                    predictionArray[3] = "div";
-
-                    foreach (string predictionString in predictionArray)
+                    foreach (string predictionString in loadedLanguage)
                     {
                         if (singleWord.Length > 0)
                         {
                             if (predictionString.Contains(singleWord))
                             {
-                                textBox4.Text = predictionString;
+                                int predictionMatch = 0;
+
+                                //Count how many characters match
+                                for (int i = 0; i < singleWord.Length; i ++)
+                                {
+                                    if (singleWord[i] == predictionString[i]) predictionMatch++;
+                                    else return;
+                                }
+
+                                if (predictionMatch > 3)
+                                {
+                                    textBox4.Text = predictionString;                     
+                                    predirectTyped = singleWord.Length;
+
+                                    predirectMatch = predictionMatch;
+                                    predirectString = predictionString;
+                                }
                             }
                         }
                     }
+                }
+            }
+        }
+
+        private void textArea_keyPressed(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                if (predirectMatch > 3)
+                {
+                    string allText = textArea.Text;
+                    string remainingText = allText.Remove(allText.Length - predirectTyped - 1);
+
+                    textArea.Text = remainingText + predirectString;
                 }
             }
         }
@@ -215,8 +242,6 @@ namespace Krijn_Text_4
                     }
                 }
             }
-
-            textArea.Text = loadedLanguage.ToString();
         }
     }
 }

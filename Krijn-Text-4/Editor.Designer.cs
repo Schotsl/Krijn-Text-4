@@ -59,6 +59,7 @@
             this.textArea.TabIndex = 0;
             this.textArea.Text = "";
             this.textArea.TextChanged += new System.EventHandler(this.textArea_TextChanged);
+            this.textArea.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textArea_keyPressed);
             // 
             // menuStrip1
             // 
