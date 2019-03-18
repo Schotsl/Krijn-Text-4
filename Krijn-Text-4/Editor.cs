@@ -23,23 +23,26 @@ namespace Krijn_Text_4
         {
             InitializeComponent();
 
-            string[] languages = Directory.GetFiles(@"languages/");
-
-            foreach (string filePath in languages)
+            if (Directory.Exists("languages/"))
             {
-                //Get file name withouth path
-                var sections = filePath.Split('/');
-                var fileName = sections[sections.Length - 1];
-         
-                //Create menu item
-                var tempLanguage = new ToolStripMenuItem();
-                tempLanguage.CheckedChanged += new System.EventHandler(this.languagesToolStripMenuItem_CheckedChanged);
-                tempLanguage.CheckOnClick = true;
-                tempLanguage.Name = filePath;
-                tempLanguage.Text = fileName;
+                string[] languages = Directory.GetFiles(@"languages/");
 
-                //Add menu item to dropdown menu
-                languagesToolStripMenuItem.DropDownItems.Add(tempLanguage);
+                foreach (string filePath in languages)
+                {
+                    //Get file name withouth path
+                    var sections = filePath.Split('/');
+                    var fileName = sections[sections.Length - 1];
+
+                    //Create menu item
+                    var tempLanguage = new ToolStripMenuItem();
+                    tempLanguage.CheckedChanged += new System.EventHandler(this.languagesToolStripMenuItem_CheckedChanged);
+                    tempLanguage.CheckOnClick = true;
+                    tempLanguage.Name = filePath;
+                    tempLanguage.Text = fileName;
+
+                    //Add menu item to dropdown menu
+                    languagesToolStripMenuItem.DropDownItems.Add(tempLanguage);
+                }
             }
         }
 
