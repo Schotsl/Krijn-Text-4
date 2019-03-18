@@ -13,23 +13,27 @@ namespace Krijn_Text_4
 {
     public partial class Editor : MetroFramework.Forms.MetroForm
     {
+        public static List<string> loadedLanguage = new List<string>();
+
         public Editor()
         {
             InitializeComponent();
 
             string[] languages = Directory.GetFiles(@"languages/");
 
-            foreach (string language in languages)
+            foreach (string filePath in languages)
             {
                 //Get file name withouth path
-                var sections = language.Split('/');
+                var sections = filePath.Split('/');
                 var fileName = sections[sections.Length - 1];
          
                 //Create menu item
                 var tempLanguage = new ToolStripMenuItem();
+                tempLanguage.CheckedChanged += new System.EventHandler(this.languagesToolStripMenuItem_CheckedChanged);
                 tempLanguage.CheckOnClick = true;
+                tempLanguage.Name = filePath;
                 tempLanguage.Text = fileName;
-                
+
                 //Add menu item to dropdown menu
                 languagesToolStripMenuItem.DropDownItems.Add(tempLanguage);
             }
@@ -190,6 +194,29 @@ namespace Krijn_Text_4
             {
                 MessageBox.Show("File not found.");
             }
+        }
+
+        private void languagesToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            //Empty loaded languages
+            loadedLanguage =  new List<string>();
+
+            //Add requested languages
+            foreach (ToolStripMenuItem toolItem in languagesToolStripMenuItem.DropDownItems)
+            {
+                if (toolItem.Checked)
+                {
+                    var filePath = toolItem.Name;
+                    var fileContent = File.ReadLines(filePath).ToArray();
+
+                    foreach(string fileRow in fileContent)
+                    {
+                        loadedLanguage.Add(fileRow);
+                    }
+                }
+            }
+
+            textArea.Text = loadedLanguage.ToString();
         }
     }
 }
