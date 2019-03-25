@@ -41,7 +41,7 @@
             this.projectTreeContextMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.openProjectFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.btnOpenSelectedFile = new MetroFramework.Controls.MetroButton();
+            this.btnOpenTreeFile = new MetroFramework.Controls.MetroButton();
             this.menuStrip1.SuspendLayout();
             this.projectTreeContextMenu.SuspendLayout();
             this.SuspendLayout();
@@ -115,9 +115,9 @@
             // projectTree
             // 
             this.projectTree.ContextMenuStrip = this.projectTreeContextMenu;
-            this.projectTree.Location = new System.Drawing.Point(20, 95);
+            this.projectTree.Location = new System.Drawing.Point(20, 124);
             this.projectTree.Name = "projectTree";
-            this.projectTree.Size = new System.Drawing.Size(141, 326);
+            this.projectTree.Size = new System.Drawing.Size(141, 297);
             this.projectTree.TabIndex = 5;
             // 
             // projectTreeContextMenu
@@ -141,20 +141,23 @@
             this.textBox4.Size = new System.Drawing.Size(141, 20);
             this.textBox4.TabIndex = 9;
             // 
-            // btnOpenSelectedFile
+            // btnOpenTreeFile
             // 
-            this.btnOpenSelectedFile.Location = new System.Drawing.Point(0, 0);
-            this.btnOpenSelectedFile.Name = "btnOpenSelectedFile";
-            this.btnOpenSelectedFile.Size = new System.Drawing.Size(75, 23);
-            this.btnOpenSelectedFile.TabIndex = 1;
-            this.btnOpenSelectedFile.UseSelectable = true;
+            this.btnOpenTreeFile.Location = new System.Drawing.Point(20, 95);
+            this.btnOpenTreeFile.Name = "btnOpenTreeFile";
+            this.btnOpenTreeFile.Size = new System.Drawing.Size(141, 23);
+            this.btnOpenTreeFile.TabIndex = 10;
+            this.btnOpenTreeFile.Text = "Open Selected File";
+            this.btnOpenTreeFile.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.btnOpenTreeFile.UseSelectable = true;
+            this.btnOpenTreeFile.Click += new System.EventHandler(this.btnOpenTreeFile_Click);
             // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(847, 460);
-            this.Controls.Add(this.btnOpenSelectedFile);
+            this.Controls.Add(this.btnOpenTreeFile);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.projectTree);
             this.Controls.Add(this.textArea);
@@ -186,7 +189,7 @@
         private System.Windows.Forms.TextBox textBox4;
         private MetroFramework.Controls.MetroContextMenu projectTreeContextMenu;
         private System.Windows.Forms.ToolStripMenuItem openProjectFolderToolStripMenuItem;
-        private MetroFramework.Controls.MetroButton btnOpenSelectedFile;
+        private MetroFramework.Controls.MetroButton btnOpenTreeFile;
     }
 }
 
