@@ -198,13 +198,10 @@
         private System.Windows.Forms.TextBox textBox4;
         private MetroFramework.Controls.MetroContextMenu projectTreeContextMenu;
         private System.Windows.Forms.ToolStripMenuItem openProjectFolderToolStripMenuItem;
-<<<<<<< HEAD
         private MetroFramework.Controls.MetroButton btnOpenTreeFile;
-=======
         private MetroFramework.Controls.MetroButton btnOpenSelectedFile;
         private System.Windows.Forms.ToolStripMenuItem languagesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
->>>>>>> b501f9273d4099226793f7c7463447975a4d6782
     }
 }
 

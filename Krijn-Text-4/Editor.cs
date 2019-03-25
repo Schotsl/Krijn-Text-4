@@ -26,9 +26,7 @@ namespace Krijn_Text_4
         public Editor()
         {
             InitializeComponent();
-<<<<<<< HEAD
             textArea.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-=======
 
             if (Directory.Exists("languages/"))
             {
@@ -51,7 +49,6 @@ namespace Krijn_Text_4
                     languagesToolStripMenuItem.DropDownItems.Add(tempLanguage);
                 }
             }
->>>>>>> b501f9273d4099226793f7c7463447975a4d6782
         }
 
         // ######################## Methods #############################
@@ -240,11 +237,10 @@ namespace Krijn_Text_4
             }
         }
 
-<<<<<<< HEAD
         private void btnOpenTreeFile_Click(object sender, EventArgs e)
         {
+        }
         
-=======
         private void languagesToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
         {
             //Empty loaded languages
@@ -264,7 +260,6 @@ namespace Krijn_Text_4
                     }
                 }
             }
->>>>>>> b501f9273d4099226793f7c7463447975a4d6782
         }
     }
 }
