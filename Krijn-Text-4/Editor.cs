@@ -51,7 +51,7 @@ namespace Krijn_Text_4
             }
         }
 
-        // ######################## MethodsT #############################
+        // ######################## Methods #############################
 
         // Method to add project folder
         public void mthdOpenProjectFolder()
