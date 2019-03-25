@@ -17,10 +17,41 @@ namespace Krijn_Text_4
 {
     public partial class Editor : MetroFramework.Forms.MetroForm
     {
+        public static int predirectMatch;
+        public static int predirectTyped;
+        public static string predirectString = String.Empty;
+
+        public static List<string> loadedLanguage = new List<string>();
+
         public Editor()
         {
             InitializeComponent();
+<<<<<<< HEAD
             textArea.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+=======
+
+            if (Directory.Exists("languages/"))
+            {
+                string[] languages = Directory.GetFiles(@"languages/");
+
+                foreach (string filePath in languages)
+                {
+                    //Get file name withouth path
+                    var sections = filePath.Split('/');
+                    var fileName = sections[sections.Length - 1];
+
+                    //Create menu item
+                    var tempLanguage = new ToolStripMenuItem();
+                    tempLanguage.CheckedChanged += new System.EventHandler(this.languagesToolStripMenuItem_CheckedChanged);
+                    tempLanguage.CheckOnClick = true;
+                    tempLanguage.Name = filePath;
+                    tempLanguage.Text = fileName;
+
+                    //Add menu item to dropdown menu
+                    languagesToolStripMenuItem.DropDownItems.Add(tempLanguage);
+                }
+            }
+>>>>>>> b501f9273d4099226793f7c7463447975a4d6782
         }
 
         // ######################## Methods #############################
@@ -141,23 +172,46 @@ namespace Krijn_Text_4
 
                 if (stringLength > caretLocation && caretLocation <= stringLength)
                 {
-                    //Should be moved to an external file
-                    string[] predictionArray = new string[4];
-                    predictionArray[0] = "html";
-                    predictionArray[1] = "body";
-                    predictionArray[2] = "head";
-                    predictionArray[3] = "div";
-
-                    foreach (string predictionString in predictionArray)
+                    foreach (string predictionString in loadedLanguage)
                     {
                         if (singleWord.Length > 0)
                         {
                             if (predictionString.Contains(singleWord))
                             {
-                                textBox4.Text = predictionString;
+                                int predictionMatch = 0;
+
+                                //Count how many characters match
+                                for (int i = 0; i < singleWord.Length; i ++)
+                                {
+                                    if (singleWord[i] == predictionString[i]) predictionMatch++;
+                                    else return;
+                                }
+
+                                if (predictionMatch > 3)
+                                {
+                                    textBox4.Text = predictionString;                     
+                                    predirectTyped = singleWord.Length;
+
+                                    predirectMatch = predictionMatch;
+                                    predirectString = predictionString;
+                                }
                             }
                         }
                     }
+                }
+            }
+        }
+
+        private void textArea_keyPressed(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                if (predirectMatch > 3)
+                {
+                    string allText = textArea.Text;
+                    string remainingText = allText.Remove(allText.Length - predirectTyped - 1);
+
+                    textArea.Text = remainingText + predirectString;
                 }
             }
         }
@@ -186,9 +240,31 @@ namespace Krijn_Text_4
             }
         }
 
+<<<<<<< HEAD
         private void btnOpenTreeFile_Click(object sender, EventArgs e)
         {
         
+=======
+        private void languagesToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            //Empty loaded languages
+            loadedLanguage =  new List<string>();
+
+            //Add requested languages
+            foreach (ToolStripMenuItem toolItem in languagesToolStripMenuItem.DropDownItems)
+            {
+                if (toolItem.Checked)
+                {
+                    var filePath = toolItem.Name;
+                    var fileContent = File.ReadLines(filePath).ToArray();
+
+                    foreach(string fileRow in fileContent)
+                    {
+                        loadedLanguage.Add(fileRow);
+                    }
+                }
+            }
+>>>>>>> b501f9273d4099226793f7c7463447975a4d6782
         }
     }
 }
