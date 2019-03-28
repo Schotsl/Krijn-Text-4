@@ -8,6 +8,10 @@ using System.Text;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MetroFramework;
+using MetroFramework.Forms;
+using MetroFramework.Drawing;
+using MetroFramework.Interfaces;
 
 namespace Krijn_Text_4
 {
@@ -22,6 +26,7 @@ namespace Krijn_Text_4
         public Editor()
         {
             InitializeComponent();
+            textArea.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 
             if (Directory.Exists("languages/"))
             {
@@ -76,6 +81,7 @@ namespace Krijn_Text_4
             foreach (var file in directoryInfo.GetFiles())
                 directoryNode.Nodes.Add(new TreeNode(file.Name) { Tag = file.FullName });
 
+
             return directoryNode;
         }
 
@@ -126,6 +132,11 @@ namespace Krijn_Text_4
             {
                 MessageBox.Show("Can't open file, please try again.");
             }
+        }
+
+        public void mthdFilePath()
+        {
+
         }
 
         // ################################# Code for visual items ########################################
@@ -226,6 +237,10 @@ namespace Krijn_Text_4
             }
         }
 
+        private void btnOpenTreeFile_Click(object sender, EventArgs e)
+        {
+        }
+        
         private void languagesToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
         {
             //Empty loaded languages
