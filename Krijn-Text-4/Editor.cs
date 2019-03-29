@@ -205,10 +205,21 @@ namespace Krijn_Text_4
             {
                 if (predirectMatch > 3)
                 {
+                    //Get soon to be location of caret
+                    var caretString = predirectString.IndexOf('*');
+
+                    //Remove caret locater from string
+                    predirectString = predirectString.Replace("*", "");
+
+                    //Add predicted string to textarea
                     string allText = textArea.Text;
                     string remainingText = allText.Remove(allText.Length - predirectTyped - 1);
 
                     textArea.Text = remainingText + predirectString;
+
+                    //Move caret to right position
+                    var caretLocation = textArea.SelectionStart;
+                    textArea.SelectionStart = caretLocation + caretString;
                 }
             }
         }
