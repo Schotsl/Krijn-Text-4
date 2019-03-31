@@ -51,7 +51,9 @@ namespace Krijn_Text_4
             }
         }
 
-        // ######################## Methods #############################
+
+
+        // ###################### #############################
 
         // Method to add project folder
         public void mthdOpenProjectFolder()
@@ -272,5 +274,11 @@ namespace Krijn_Text_4
                 }
             }
         }
+
+        private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
+
 }
