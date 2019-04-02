@@ -38,13 +38,12 @@
             this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addProjectFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.languagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.projectTree = new System.Windows.Forms.TreeView();
             this.projectTreeContextMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.openProjectFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.btnOpenTreeFile = new MetroFramework.Controls.MetroButton();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.projectTreeContextMenu.SuspendLayout();
             this.SuspendLayout();
@@ -124,13 +123,29 @@
             this.languagesToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
             this.languagesToolStripMenuItem.Text = "Languages";
             // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.checkForUpdatesToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // checkForUpdatesToolStripMenuItem
+            // 
+            this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
+            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.checkForUpdatesToolStripMenuItem.Text = "Check For Updates";
+            this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdatesToolStripMenuItem_Click_1);
+            // 
             // projectTree
             // 
             this.projectTree.ContextMenuStrip = this.projectTreeContextMenu;
-            this.projectTree.Location = new System.Drawing.Point(20, 124);
+            this.projectTree.Location = new System.Drawing.Point(20, 95);
             this.projectTree.Name = "projectTree";
-            this.projectTree.Size = new System.Drawing.Size(141, 297);
+            this.projectTree.Size = new System.Drawing.Size(141, 326);
             this.projectTree.TabIndex = 5;
+            this.projectTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.projectTree_AfterSelect);
             // 
             // projectTreeContextMenu
             // 
@@ -153,38 +168,11 @@
             this.textBox4.Size = new System.Drawing.Size(141, 20);
             this.textBox4.TabIndex = 9;
             // 
-            // btnOpenTreeFile
-            // 
-            this.btnOpenTreeFile.Location = new System.Drawing.Point(20, 95);
-            this.btnOpenTreeFile.Name = "btnOpenTreeFile";
-            this.btnOpenTreeFile.Size = new System.Drawing.Size(141, 23);
-            this.btnOpenTreeFile.TabIndex = 10;
-            this.btnOpenTreeFile.Text = "Open Selected File";
-            this.btnOpenTreeFile.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.btnOpenTreeFile.UseSelectable = true;
-            this.btnOpenTreeFile.Click += new System.EventHandler(this.btnOpenTreeFile_Click);
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.checkForUpdatesToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
-            // 
-            // checkForUpdatesToolStripMenuItem
-            // 
-            this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
-            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.checkForUpdatesToolStripMenuItem.Text = "Check For Updates";
-            this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdatesToolStripMenuItem_Click_1);
-            // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(847, 460);
-            this.Controls.Add(this.btnOpenTreeFile);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.projectTree);
             this.Controls.Add(this.textArea);
@@ -216,7 +204,6 @@
         private System.Windows.Forms.TextBox textBox4;
         private MetroFramework.Controls.MetroContextMenu projectTreeContextMenu;
         private System.Windows.Forms.ToolStripMenuItem openProjectFolderToolStripMenuItem;
-        private MetroFramework.Controls.MetroButton btnOpenTreeFile;
         private MetroFramework.Controls.MetroButton btnOpenSelectedFile;
         private System.Windows.Forms.ToolStripMenuItem languagesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
