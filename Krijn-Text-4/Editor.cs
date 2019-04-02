@@ -15,7 +15,7 @@ using MetroFramework.Interfaces;
 
 namespace Krijn_Text_4
 {
-    public partial class Editor : MetroFramework.Forms.MetroForm, 
+    public partial class Editor : MetroFramework.Forms.MetroForm 
     {
         public static int predirectMatch;
         public static int predirectTyped;
