@@ -8,18 +8,25 @@ using System.Text;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 using MetroFramework;
 using MetroFramework.Forms;
 using MetroFramework.Drawing;
 using MetroFramework.Interfaces;
+using SharpUpdate;
+using System.Reflection;
 
 namespace Krijn_Text_4
 {
-    public partial class Editor : MetroFramework.Forms.MetroForm
+    public partial class Editor : MetroFramework.Forms.MetroForm 
     {
+        private SharpUpdater updater;
         public static int predirectMatch;
         public static int predirectTyped;
         public static string predirectString = String.Empty;
+
+        public static string treeViewDirectory = String.Empty;
+        public static string nodeStructureDirectory = String.Empty;
 
         public static List<string> loadedLanguage = new List<string>();
 
@@ -27,6 +34,10 @@ namespace Krijn_Text_4
         {
             InitializeComponent();
             textArea.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Text = "Krijn " + Application.ProductVersion;
+
+            updater = new SharpUpdater(Assembly.GetExecutingAssembly(), this, new Uri("https://krijn.serialpowered.com/update.xml"));
+
 
             if (Directory.Exists("languages/"))
             {
@@ -60,8 +71,10 @@ namespace Krijn_Text_4
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
                 ListDirectory(projectTree, fbd.SelectedPath);
-
+                treeViewDirectory = fbd.SelectedPath;
+            }
             projectTree.ExpandAll();
         }
 
@@ -249,10 +262,6 @@ namespace Krijn_Text_4
                 MessageBox.Show("File not found.");
             }
         }
-
-        private void btnOpenTreeFile_Click(object sender, EventArgs e)
-        {
-        }
         
         private void languagesToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
         {
@@ -276,7 +285,41 @@ namespace Krijn_Text_4
         }
         private void checkForUpdatesToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
+            updater.DoUpdate();
+        }
 
+        private void projectTree_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            try
+            {
+                //Reset node structure tree
+                nodeStructureDirectory = "";
+                Recursion(e.Node);
+
+                //Generate file name with directory then remove extra '\' from the string
+                string strFileName = treeViewDirectory + "\\" + nodeStructureDirectory;
+                strFileName = strFileName.Remove(strFileName.Length - 1);
+
+                //Load and insert file
+                string fileText = File.ReadAllText(strFileName);
+                textArea.Text = fileText;
+            }
+            catch (System.ComponentModel.Win32Exception)
+            {
+                MessageBox.Show("Can't open file, please try again.");
+            }
+        }
+
+        private void Recursion(TreeNode node)
+        {
+            nodeStructureDirectory = node.Text + "\\" + nodeStructureDirectory;
+
+            //Check parents parent to make sure the loop ends one node be
+            if (node.Parent.Parent != null)
+            {
+                TreeNode nodeParent = node.Parent;
+                Recursion(nodeParent);
+            }
         }
     }
 }
