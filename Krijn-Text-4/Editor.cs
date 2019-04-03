@@ -8,6 +8,7 @@ using System.Text;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 using MetroFramework;
 using MetroFramework.Forms;
 using MetroFramework.Drawing;
@@ -277,7 +278,10 @@ namespace Krijn_Text_4
         }
         private void checkForUpdatesToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-
+            string startupPath = Application.StartupPath;
+            string updaterFileName = Path.GetFileName(Application.ExecutablePath);
+            string processId = Process.GetCurrentProcess().Id.ToString();
+            Process.Start(Directory.GetCurrentDirectory() + "\\" + "Updater.exe", "\"" + startupPath + "\"" + " " + "\"" + updaterFileName + "\"" + " " + "\"" + processId + "\"");
         }
 
         private void projectTree_AfterSelect(object sender, TreeViewEventArgs e)
