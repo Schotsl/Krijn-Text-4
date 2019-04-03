@@ -21,22 +21,27 @@ namespace Updater
             updateFileName = args[1].ToString();
             processID = args[2].ToString();
 
+            //Kills exising .exe if running
             Process.GetProcessById(Convert.ToInt32(processID)).Kill();
 
+            //Writes variable outcomes in command line (Unecessary)
             Console.WriteLine(updatePath);
             Console.WriteLine(updateFileName);
             Console.WriteLine(processID);
 
+            //Uses webclient to download new .exe
             using (WebClient updaterWC = new WebClient())
             {
                 updaterWC.DownloadFile(updateDownload, updatePath + "\\KrijnText4.exe");
             }
 
+            //Deletes old .exe
             File.Delete(updatePath + "\\" + updateFileName);
 
+            //Renames downloaded exe
             File.Move(updatePath + "KrijnText4.exe", updatePath + "\\" + updateFileName);
-            File.Move("KrijnText4-1", "KrijnText4-2");
 
+            //Starts the updated program
             Process.Start(updatePath + "\\" + updateFileName);
         }
     }
