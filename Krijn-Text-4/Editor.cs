@@ -29,7 +29,7 @@ namespace Krijn_Text_4
         public static string nodeStructureDirectory = String.Empty;
 
         public static List<string> loadedLanguage = new List<string>();
-
+        //Added auto updater
         public Editor()
         {
             InitializeComponent();

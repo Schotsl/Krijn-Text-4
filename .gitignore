@@ -42,7 +42,7 @@ x64/
 *.log
 *.vspscc
 *.vssscc
-*.csproj
+.csproj
 .builds
 
 # Visual C++ cache files
