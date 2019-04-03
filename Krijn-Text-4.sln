@@ -5,22 +5,40 @@ VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Krijn-Text-4", "Krijn-Text-4\Krijn-Text-4.csproj", "{18C784CE-60BD-4107-BEDA-86EAA6FEF80E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Updater", "Updater\Updater.csproj", "{0B708F5F-88E3-4570-8508-DDB9CC8E7BA8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpUpdate", "..\SharpUpdate-master\SharpUpdate\SharpUpdate.csproj", "{811C1D69-764F-4335-8363-B93A1D106268}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{18C784CE-60BD-4107-BEDA-86EAA6FEF80E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{18C784CE-60BD-4107-BEDA-86EAA6FEF80E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18C784CE-60BD-4107-BEDA-86EAA6FEF80E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{18C784CE-60BD-4107-BEDA-86EAA6FEF80E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{18C784CE-60BD-4107-BEDA-86EAA6FEF80E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{18C784CE-60BD-4107-BEDA-86EAA6FEF80E}.Debug|x86.Build.0 = Debug|Any CPU
 		{18C784CE-60BD-4107-BEDA-86EAA6FEF80E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18C784CE-60BD-4107-BEDA-86EAA6FEF80E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0B708F5F-88E3-4570-8508-DDB9CC8E7BA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0B708F5F-88E3-4570-8508-DDB9CC8E7BA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0B708F5F-88E3-4570-8508-DDB9CC8E7BA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0B708F5F-88E3-4570-8508-DDB9CC8E7BA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18C784CE-60BD-4107-BEDA-86EAA6FEF80E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{18C784CE-60BD-4107-BEDA-86EAA6FEF80E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{18C784CE-60BD-4107-BEDA-86EAA6FEF80E}.Release|x86.ActiveCfg = Release|Any CPU
+		{18C784CE-60BD-4107-BEDA-86EAA6FEF80E}.Release|x86.Build.0 = Release|Any CPU
+		{811C1D69-764F-4335-8363-B93A1D106268}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{811C1D69-764F-4335-8363-B93A1D106268}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{811C1D69-764F-4335-8363-B93A1D106268}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{811C1D69-764F-4335-8363-B93A1D106268}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{811C1D69-764F-4335-8363-B93A1D106268}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{811C1D69-764F-4335-8363-B93A1D106268}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{811C1D69-764F-4335-8363-B93A1D106268}.Release|Any CPU.Build.0 = Release|Any CPU
+		{811C1D69-764F-4335-8363-B93A1D106268}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{811C1D69-764F-4335-8363-B93A1D106268}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{811C1D69-764F-4335-8363-B93A1D106268}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
