@@ -8,15 +8,20 @@ using System.Text;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 using MetroFramework;
 using MetroFramework.Forms;
 using MetroFramework.Drawing;
 using MetroFramework.Interfaces;
+using SharpUpdate;
+using System.Reflection;
 
 namespace Krijn_Text_4
 {
-    public partial class Editor : MetroFramework.Forms.MetroForm
+
+    public partial class Editor : MetroFramework.Forms.MetroForm 
     {
+        private SharpUpdater updater;
         public static int predirectMatch;
         public static int predirectTyped;
         public static string predirectString = String.Empty;
@@ -30,6 +35,10 @@ namespace Krijn_Text_4
         {
             InitializeComponent();
             textArea.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Text = "Krijn " + Application.ProductVersion;
+
+            updater = new SharpUpdater(Assembly.GetExecutingAssembly(), this, new Uri("https://krijn.serialpowered.com/update.xml"));
+
 
             if (Directory.Exists("languages/"))
             {
@@ -277,7 +286,7 @@ namespace Krijn_Text_4
         }
         private void checkForUpdatesToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-
+            updater.DoUpdate();
         }
 
         private void projectTree_AfterSelect(object sender, TreeViewEventArgs e)
