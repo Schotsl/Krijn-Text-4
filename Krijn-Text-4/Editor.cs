@@ -281,13 +281,21 @@ namespace Krijn_Text_4
             string startupPath = Application.StartupPath;
             string updaterFileName = Path.GetFileName(Application.ExecutablePath);
             string processId = Process.GetCurrentProcess().Id.ToString();
-            try
+
+            if (File.Exists("updater.exe"))
             {
-                Process.Start(Directory.GetCurrentDirectory() + "\\" + "Updater.exe", "\"" + startupPath + "\"" + " " + "\"" + updaterFileName + "\"" + " " + "\"" + processId + "\"");
+                try
+                {
+                    Process.Start(Directory.GetCurrentDirectory() + "\\" + "Updater.exe", "\"" + startupPath + "\"" + " " + "\"" + updaterFileName + "\"" + " " + "\"" + processId + "\"");
+                }
+                catch
+                {
+                    MessageBox.Show("Failed to update. Please try again later or contact a developer");
+                }
             }
-            catch
+            else
             {
-                MessageBox.Show("Failed to update. Please try again later or contact a developer");
+                MessageBox.Show("Updater.exe is not in the same folder as Krijn Editor.");
             }
         }
 
