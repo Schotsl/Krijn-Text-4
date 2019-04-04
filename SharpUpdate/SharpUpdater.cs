@@ -126,7 +126,7 @@ namespace SharpUpdate
 
                     if (showMsgBox)
                     {
-                        MessageBoxEx.Show(ParentForm, "You have the latest versions already!");
+                        MessageBoxEx.Show(ParentForm, "The lastest version of Krijn is already installed!");
                     }
                     else
                     {
@@ -135,7 +135,7 @@ namespace SharpUpdate
                     }
                 }
 				else
-					MessageBoxEx.Show(ParentForm, "You have the latest versions already!");
+					MessageBoxEx.Show(ParentForm, "The lastest version of Krijn is already installed!");
 			}
 			else
 				MessageBoxEx.Show(ParentForm, "No update information found!");
@@ -187,7 +187,7 @@ namespace SharpUpdate
             Application.Exit();
         }
 
-        /// Hack to close program, delete original, move the new one to that location
+        /// Closes program, delete original, move the new one to that location
         private void UpdateApplications()
         {
             string argument_start = "/C choice /C Y /N /D Y /T 4 & Start \"\" /D \"{0}\" \"{1}\"";
