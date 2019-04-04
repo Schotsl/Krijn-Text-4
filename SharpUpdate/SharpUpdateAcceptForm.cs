@@ -4,31 +4,19 @@ using System.Windows.Forms;
 
 namespace SharpUpdate
 {
-    /// <summary>
     /// Form to prompt the user to accept the update
-    /// </summary>
     internal partial class SharpUpdateAcceptForm : Form
     {
-        /// <summary>
         /// The program to update's info
-        /// </summary>
         private SharpUpdateLocalAppInfo applicationInfo;
 
-        /// <summary>
         /// The update info from the update.xml
-        /// </summary>
         private SharpUpdateXml updateInfo;
 
-        /// <summary>
         /// The update info display form
-        /// </summary>
         private SharpUpdateInfoForm updateInfoForm;
 
-        /// <summary>
         /// Creates a new SharpUpdateAcceptForm
-        /// </summary>
-        /// <param name="applicationInfo"></param>
-        /// <param name="updateInfo"></param>
         internal SharpUpdateAcceptForm(SharpUpdateLocalAppInfo applicationInfo, SharpUpdateXml updateInfo, int num_cur_update, int num_total_update)
         {
             InitializeComponent();
