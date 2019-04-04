@@ -1,1 +1,1 @@
-Krijn Text 4 is the ultimate effiencey focused editor.
+Krijn Text 4 is the ultimate efficiency focused editor.
