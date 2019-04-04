@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Krijn-Text-4", "Krijn-Text-4\Krijn-Text-4.csproj", "{18C784CE-60BD-4107-BEDA-86EAA6FEF80E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpUpdate", "..\SharpUpdate-master\SharpUpdate\SharpUpdate.csproj", "{811C1D69-764F-4335-8363-B93A1D106268}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpUpdate", "SharpUpdate\SharpUpdate.csproj", "{811C1D69-764F-4335-8363-B93A1D106268}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,11 +34,13 @@ Global
 		{811C1D69-764F-4335-8363-B93A1D106268}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
 		{811C1D69-764F-4335-8363-B93A1D106268}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{811C1D69-764F-4335-8363-B93A1D106268}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{811C1D69-764F-4335-8363-B93A1D106268}.Debug|x86.Build.0 = Debug|Any CPU
 		{811C1D69-764F-4335-8363-B93A1D106268}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{811C1D69-764F-4335-8363-B93A1D106268}.Release|Any CPU.Build.0 = Release|Any CPU
 		{811C1D69-764F-4335-8363-B93A1D106268}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{811C1D69-764F-4335-8363-B93A1D106268}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{811C1D69-764F-4335-8363-B93A1D106268}.Release|x86.ActiveCfg = Release|Any CPU
+		{811C1D69-764F-4335-8363-B93A1D106268}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
