@@ -39,9 +39,10 @@
             // pictureBox
             // 
             this.pictureBox.Image = global::SharpUpdate.Properties.Resources.update;
-            this.pictureBox.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox.Location = new System.Drawing.Point(16, 15);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(80, 80);
+            this.pictureBox.Size = new System.Drawing.Size(107, 98);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
@@ -49,9 +50,10 @@
             // lblVersions
             // 
             this.lblVersions.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVersions.Location = new System.Drawing.Point(104, 25);
+            this.lblVersions.Location = new System.Drawing.Point(139, 31);
+            this.lblVersions.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVersions.Name = "lblVersions";
-            this.lblVersions.Size = new System.Drawing.Size(168, 54);
+            this.lblVersions.Size = new System.Drawing.Size(224, 66);
             this.lblVersions.TabIndex = 1;
             this.lblVersions.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -61,10 +63,11 @@
             this.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDescription.Cursor = System.Windows.Forms.Cursors.Default;
             this.txtDescription.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.txtDescription.Location = new System.Drawing.Point(12, 116);
+            this.txtDescription.Location = new System.Drawing.Point(16, 143);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.ReadOnly = true;
-            this.txtDescription.Size = new System.Drawing.Size(260, 96);
+            this.txtDescription.Size = new System.Drawing.Size(345, 117);
             this.txtDescription.TabIndex = 2;
             this.txtDescription.TabStop = false;
             this.txtDescription.Text = "";
@@ -74,18 +77,20 @@
             // 
             this.lblDescription.AutoSize = true;
             this.lblDescription.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.lblDescription.Location = new System.Drawing.Point(9, 100);
+            this.lblDescription.Location = new System.Drawing.Point(12, 123);
+            this.lblDescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(66, 13);
+            this.lblDescription.Size = new System.Drawing.Size(78, 19);
             this.lblDescription.TabIndex = 3;
             this.lblDescription.Text = "Description";
             // 
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.btnBack.Location = new System.Drawing.Point(105, 223);
+            this.btnBack.Location = new System.Drawing.Point(140, 274);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 23);
+            this.btnBack.Size = new System.Drawing.Size(100, 28);
             this.btnBack.TabIndex = 4;
             this.btnBack.TabStop = false;
             this.btnBack.Text = "Back";
@@ -94,15 +99,16 @@
             // 
             // SharpUpdateInfoForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 255);
+            this.ClientSize = new System.Drawing.Size(379, 314);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.lblVersions);
             this.Controls.Add(this.pictureBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SharpUpdateInfoForm";
