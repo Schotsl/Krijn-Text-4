@@ -34,7 +34,7 @@ namespace Krijn_Text_4
         {
             InitializeComponent();
             textArea.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.Text = "Krijn " + Application.ProductVersion;
+            metroLabel5.Text = Application.ProductVersion;
 
             updater = new SharpUpdater(Assembly.GetExecutingAssembly(), this, new Uri("https://krijn.serialpowered.com/update.xml"));
 
