@@ -44,6 +44,7 @@
             this.projectTreeContextMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.openProjectFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox4 = new System.Windows.Forms.TextBox();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroStyleManager = new MetroFramework.Components.MetroStyleManager(this.components);
             this.changeThemeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
@@ -176,12 +177,21 @@
             // 
             // textBox4
             // 
+
             this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textBox4.Location = new System.Drawing.Point(20, 427);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(141, 20);
             this.textBox4.TabIndex = 9;
             // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.Location = new System.Drawing.Point(70, 32);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(46, 19);
+            this.metroLabel5.TabIndex = 16;
+            this.metroLabel5.Text = "4.0.0.0";
             // metroStyleManager
             // 
             this.metroStyleManager.Owner = null;
@@ -196,12 +206,14 @@
             // metroStyleManager1
             // 
             this.metroStyleManager1.Owner = null;
+
             // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(847, 460);
+            this.Controls.Add(this.metroLabel5);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.projectTree);
             this.Controls.Add(this.textArea);
@@ -209,6 +221,7 @@
             this.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Editor";
             this.Text = "Krijn";
@@ -240,6 +253,7 @@
         private System.Windows.Forms.ToolStripMenuItem languagesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
+        private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Components.MetroStyleManager metroStyleManager;
         private System.Windows.Forms.ToolStripMenuItem changeThemeToolStripMenuItem;
         private MetroFramework.Components.MetroStyleManager metroStyleManager1;
