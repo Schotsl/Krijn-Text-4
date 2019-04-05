@@ -244,9 +244,6 @@ namespace Krijn_Text_4
             mthdOpenProjectFolder();
         }
 
-
-        public event TreeNodeMouseClickEventHandler NodeMouseDoubleClick;
-
         //In the works, pls help if u can. This should work. Check error/warning list.
         void projectTree_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
@@ -319,6 +316,23 @@ namespace Krijn_Text_4
             {
                 TreeNode nodeParent = node.Parent;
                 Recursion(nodeParent);
+            }
+        }
+
+        private void Editor_Load(object sender, EventArgs e)
+        {
+            this.StyleManager = metroStyleManager;
+        }
+
+        private void changeThemeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (metroStyleManager.Theme == MetroFramework.MetroThemeStyle.Light)
+            {
+                metroStyleManager.Theme = MetroFramework.MetroThemeStyle.Dark;
+            }
+            else
+            {
+                metroStyleManager.Theme = MetroFramework.MetroThemeStyle.Light;
             }
         }
     }
