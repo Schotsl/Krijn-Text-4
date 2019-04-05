@@ -45,17 +45,25 @@
             this.openProjectFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.metroStyleManager = new MetroFramework.Components.MetroStyleManager(this.components);
+            this.changeThemeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
             this.menuStrip1.SuspendLayout();
             this.projectTreeContextMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // textArea
             // 
+            this.textArea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textArea.BackColor = System.Drawing.SystemColors.Window;
             this.textArea.Location = new System.Drawing.Point(166, 95);
-            this.textArea.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textArea.MaximumSize = new System.Drawing.Size(1000, 1000);
-            this.textArea.MinimumSize = new System.Drawing.Size(661, 353);
+            this.textArea.Margin = new System.Windows.Forms.Padding(2);
+            this.textArea.MaximumSize = new System.Drawing.Size(15360, 4320);
+            this.textArea.MinimumSize = new System.Drawing.Size(153, 43);
             this.textArea.Name = "textArea";
             this.textArea.Size = new System.Drawing.Size(661, 353);
             this.textArea.TabIndex = 0;
@@ -128,7 +136,8 @@
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.checkForUpdatesToolStripMenuItem});
+            this.checkForUpdatesToolStripMenuItem,
+            this.changeThemeToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
@@ -136,12 +145,14 @@
             // checkForUpdatesToolStripMenuItem
             // 
             this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
-            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.checkForUpdatesToolStripMenuItem.Text = "Check For Updates";
             this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdatesToolStripMenuItem_Click_1);
             // 
             // projectTree
             // 
+            this.projectTree.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.projectTree.ContextMenuStrip = this.projectTreeContextMenu;
             this.projectTree.Location = new System.Drawing.Point(20, 95);
             this.projectTree.Name = "projectTree";
@@ -166,6 +177,8 @@
             // 
             // textBox4
             // 
+
+            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textBox4.Location = new System.Drawing.Point(20, 427);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(141, 20);
@@ -179,6 +192,21 @@
             this.metroLabel5.Size = new System.Drawing.Size(46, 19);
             this.metroLabel5.TabIndex = 16;
             this.metroLabel5.Text = "4.0.0.0";
+            // metroStyleManager
+            // 
+            this.metroStyleManager.Owner = null;
+            // 
+            // changeThemeToolStripMenuItem
+            // 
+            this.changeThemeToolStripMenuItem.Name = "changeThemeToolStripMenuItem";
+            this.changeThemeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.changeThemeToolStripMenuItem.Text = "Change Theme";
+            this.changeThemeToolStripMenuItem.Click += new System.EventHandler(this.changeThemeToolStripMenuItem_Click);
+            // 
+            // metroStyleManager1
+            // 
+            this.metroStyleManager1.Owner = null;
+
             // 
             // Editor
             // 
@@ -194,12 +222,16 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Editor";
             this.Text = "Krijn";
             this.TransparencyKey = System.Drawing.Color.LightGreen;
+            this.Load += new System.EventHandler(this.Editor_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.projectTreeContextMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,12 +250,13 @@
         private System.Windows.Forms.TextBox textBox4;
         private MetroFramework.Controls.MetroContextMenu projectTreeContextMenu;
         private System.Windows.Forms.ToolStripMenuItem openProjectFolderToolStripMenuItem;
-        private MetroFramework.Controls.MetroButton btnOpenSelectedFile;
         private System.Windows.Forms.ToolStripMenuItem languagesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
         private MetroFramework.Controls.MetroLabel metroLabel5;
+        private MetroFramework.Components.MetroStyleManager metroStyleManager;
+        private System.Windows.Forms.ToolStripMenuItem changeThemeToolStripMenuItem;
+        private MetroFramework.Components.MetroStyleManager metroStyleManager1;
     }
 }
 
