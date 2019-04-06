@@ -15,6 +15,7 @@ using MetroFramework.Drawing;
 using MetroFramework.Interfaces;
 using SharpUpdate;
 using System.Reflection;
+using System.Net;
 
 namespace Krijn_Text_4
 {
@@ -38,33 +39,61 @@ namespace Krijn_Text_4
 
             updater = new SharpUpdater(Assembly.GetExecutingAssembly(), this, new Uri("https://krijn.serialpowered.com/update.xml"));
 
+            //Load languages if language directory exists
+            if (Directory.Exists("languages/")) loadLanguages();
+            else downloadLanguages();
 
-            if (Directory.Exists("languages/"))
-            {
-                string[] languages = Directory.GetFiles(@"languages/");
-
-                foreach (string filePath in languages)
-                {
-                    //Get file name withouth path
-                    var sections = filePath.Split('/');
-                    var fileName = sections[sections.Length - 1];
-
-                    //Create menu item
-                    var tempLanguage = new ToolStripMenuItem();
-                    tempLanguage.CheckedChanged += new System.EventHandler(this.languagesToolStripMenuItem_CheckedChanged);
-                    tempLanguage.CheckOnClick = true;
-                    tempLanguage.Name = filePath;
-                    tempLanguage.Text = fileName;
-
-                    //Add menu item to dropdown menu
-                    languagesToolStripMenuItem.DropDownItems.Add(tempLanguage);
-                }
-            }
         }
 
 
 
         // ###################### #############################
+
+        public void downloadLanguages()
+        {
+            using (WebClient client = new WebClient())
+            {
+                MessageBox.Show("Installing new language packs");
+
+                //Load language packs from website
+                string HTML = client.DownloadString("https://krijn.serialpowered.com/languages/HTML");
+
+                //Create language directory
+                Directory.CreateDirectory(@"languages/");
+
+                //Save file in directory
+                using (StreamWriter streamWriter = new StreamWriter(@"languages/HTML"))
+                {
+                    streamWriter.Write(HTML);
+                }
+
+                MessageBox.Show("Language packs have been installed!");
+
+                loadLanguages();
+            }
+        }
+
+        public void loadLanguages()
+        {
+            string[] languages = Directory.GetFiles(@"languages/");
+
+            foreach (string filePath in languages)
+            {
+                //Get file name withouth path
+                var sections = filePath.Split('/');
+                var fileName = sections[sections.Length - 1];
+
+                //Create menu item
+                var tempLanguage = new ToolStripMenuItem();
+                tempLanguage.CheckedChanged += new System.EventHandler(this.languagesToolStripMenuItem_CheckedChanged);
+                tempLanguage.CheckOnClick = true;
+                tempLanguage.Name = filePath;
+                tempLanguage.Text = fileName;
+
+                //Add menu item to dropdown menu
+                languagesToolStripMenuItem.DropDownItems.Add(tempLanguage);
+            }
+        }
 
         // Method to add project folder
         public void mthdOpenProjectFolder()
