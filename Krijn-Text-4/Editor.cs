@@ -9,17 +9,13 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
-using MetroFramework;
-using MetroFramework.Forms;
-using MetroFramework.Drawing;
-using MetroFramework.Interfaces;
 using SharpUpdate;
 using System.Reflection;
 using System.Net;
 
 namespace Krijn_Text_4
 {
-    public partial class Editor : MetroFramework.Forms.MetroForm 
+    public partial class Editor : Form
     {
         private SharpUpdater updater;
         public static int predirectMatch;
@@ -35,7 +31,7 @@ namespace Krijn_Text_4
         {
             InitializeComponent();
             textArea.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            metroLabel5.Text = Application.ProductVersion;
+            this.Text = Application.ProductVersion;
 
             updater = new SharpUpdater(Assembly.GetExecutingAssembly(), this, new Uri("https://krijn.serialpowered.com/update.xml"));
 
@@ -350,19 +346,43 @@ namespace Krijn_Text_4
 
         private void Editor_Load(object sender, EventArgs e)
         {
-            this.StyleManager = metroStyleManager;
         }
 
         private void changeThemeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (metroStyleManager.Theme == MetroFramework.MetroThemeStyle.Light)
+            if (1 == 1)
             {
-                metroStyleManager.Theme = MetroFramework.MetroThemeStyle.Dark;
+                menuStrip1.BackColor = Color.Black;
+                menuStrip1.ForeColor = Color.White;
+                projectTree.BackColor = Color.Black;
+                projectTree.ForeColor = Color.White;
+                textBox4.BackColor = Color.Black;
+                textBox4.ForeColor = Color.White;
+                textArea.BackColor = Color.Black;
+                textArea.ForeColor = Color.White;
+                this.Refresh();
             }
             else
             {
-                metroStyleManager.Theme = MetroFramework.MetroThemeStyle.Light;
+                menuStrip1.BackColor = Color.White;
+                menuStrip1.ForeColor = Color.Black;
+                projectTree.BackColor = Color.White;
+                projectTree.ForeColor = Color.Black;
+                textBox4.BackColor = Color.White;
+                textBox4.ForeColor = Color.Black;
+                textArea.BackColor = Color.White;
+                textArea.ForeColor = Color.Black;
+                this.Refresh();
             }
+        }
+
+        private void treeContextMenu_Opening(object sender, CancelEventArgs e)
+        {
+        }
+
+        private void openProjectFolderToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            mthdOpenProjectFolder();
         }
     }
 }
