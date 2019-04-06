@@ -108,11 +108,15 @@ namespace Krijn_Text_4
         public void saveSettings()
         {
             Properties.Settings.Default.Theme = darkMode;
+
+            //Forces the app to save a settings. DONT EVER REMOVE.
+            Properties.Settings.Default.Save();
         }
 
         public void loadSettings()
         {
             darkMode = Properties.Settings.Default.Theme;
+            mthdThemeSettings();
         }
 
         private void ListDirectory(TreeView treeView, string path)
@@ -186,9 +190,35 @@ namespace Krijn_Text_4
             }
         }
 
-        public void mthdFilePath()
+        //Method to set/save the theme choice
+        public void mthdThemeSettings()
         {
-
+            if (darkMode == true)
+            {
+                menuStrip.BackColor = Color.FromArgb(75, 75, 75);
+                menuStrip.ForeColor = Color.White;
+                projectTree.BackColor = Color.FromArgb(75, 75, 75);
+                projectTree.ForeColor = Color.White;
+                textBox4.BackColor = Color.FromArgb(75, 75, 75);
+                textBox4.ForeColor = Color.White;
+                textArea.BackColor = Color.FromArgb(75, 75, 75);
+                textArea.ForeColor = Color.White;
+                this.BackColor = Color.FromArgb(75, 75, 75);
+                saveSettings();
+            }
+            else if (darkMode == false)
+            {
+                menuStrip.BackColor = Color.FromKnownColor(KnownColor.Control);
+                menuStrip.ForeColor = Color.Black;
+                projectTree.BackColor = Color.White;
+                projectTree.ForeColor = Color.Black;
+                textBox4.BackColor = Color.White;
+                textBox4.ForeColor = Color.Black;
+                textArea.BackColor = Color.White;
+                textArea.ForeColor = Color.Black;
+                this.BackColor = Color.FromKnownColor(KnownColor.Control);
+                saveSettings();
+            }
         }
 
         // ################################# Code for visual items ########################################
@@ -376,9 +406,8 @@ namespace Krijn_Text_4
                 this.BackColor = Color.FromArgb(75, 75, 75); 
                 darkMode = true;
                 saveSettings();
-                this.Refresh();
             }
-            else
+            else if (darkMode == true)
             {
                 menuStrip.BackColor = Color.FromKnownColor(KnownColor.Control);
                 menuStrip.ForeColor = Color.Black;
@@ -391,7 +420,6 @@ namespace Krijn_Text_4
                 this.BackColor = Color.FromKnownColor(KnownColor.Control);
                 darkMode = false;
                 saveSettings();
-                this.Refresh();
             }
         }
 
