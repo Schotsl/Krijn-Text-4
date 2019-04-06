@@ -105,6 +105,16 @@ namespace Krijn_Text_4
             projectTree.ExpandAll();
         }
 
+        public void saveSettings()
+        {
+            Properties.Settings.Default.Theme = darkMode;
+        }
+
+        public void loadSettings()
+        {
+            darkMode = Properties.Settings.Default.Theme;
+        }
+
         private void ListDirectory(TreeView treeView, string path)
         {
             treeView.Nodes.Clear();
@@ -348,6 +358,7 @@ namespace Krijn_Text_4
 
         private void Editor_Load(object sender, EventArgs e)
         {
+            loadSettings();
         }
 
         private void changeThemeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -364,6 +375,7 @@ namespace Krijn_Text_4
                 textArea.ForeColor = Color.White;
                 this.BackColor = Color.FromArgb(75, 75, 75); 
                 darkMode = true;
+                saveSettings();
                 this.Refresh();
             }
             else
@@ -378,6 +390,7 @@ namespace Krijn_Text_4
                 textArea.ForeColor = Color.Black;
                 this.BackColor = Color.FromKnownColor(KnownColor.Control);
                 darkMode = false;
+                saveSettings();
                 this.Refresh();
             }
         }
