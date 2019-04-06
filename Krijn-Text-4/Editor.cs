@@ -206,7 +206,7 @@ namespace Krijn_Text_4
                 this.BackColor = Color.FromArgb(75, 75, 75);
                 saveSettings();
             }
-            else if (darkMode == false)
+            else
             {
                 menuStrip.BackColor = Color.FromKnownColor(KnownColor.Control);
                 menuStrip.ForeColor = Color.Black;
