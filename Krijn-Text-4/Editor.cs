@@ -25,6 +25,8 @@ namespace Krijn_Text_4
         public static string treeViewDirectory = String.Empty;
         public static string nodeStructureDirectory = String.Empty;
 
+        bool darkMode = false;
+
         public static List<string> loadedLanguage = new List<string>();
         
         public Editor()
@@ -350,21 +352,23 @@ namespace Krijn_Text_4
 
         private void changeThemeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (1 == 1)
+            if (darkMode == false)
             {
-                menuStrip.BackColor = Color.Black;
+                menuStrip.BackColor = Color.FromArgb(75, 75, 75);
                 menuStrip.ForeColor = Color.White;
-                projectTree.BackColor = Color.Black;
+                projectTree.BackColor = Color.FromArgb(75, 75, 75);
                 projectTree.ForeColor = Color.White;
-                textBox4.BackColor = Color.Black;
+                textBox4.BackColor = Color.FromArgb(75, 75, 75);
                 textBox4.ForeColor = Color.White;
-                textArea.BackColor = Color.Black;
+                textArea.BackColor = Color.FromArgb(75, 75, 75);
                 textArea.ForeColor = Color.White;
+                this.BackColor = Color.FromArgb(75, 75, 75); 
+                darkMode = true;
                 this.Refresh();
             }
             else
             {
-                menuStrip.BackColor = Color.White;
+                menuStrip.BackColor = Color.FromKnownColor(KnownColor.Control);
                 menuStrip.ForeColor = Color.Black;
                 projectTree.BackColor = Color.White;
                 projectTree.ForeColor = Color.Black;
@@ -372,6 +376,8 @@ namespace Krijn_Text_4
                 textBox4.ForeColor = Color.Black;
                 textArea.BackColor = Color.White;
                 textArea.ForeColor = Color.Black;
+                this.BackColor = Color.FromKnownColor(KnownColor.Control);
+                darkMode = false;
                 this.Refresh();
             }
         }
