@@ -352,8 +352,8 @@ namespace Krijn_Text_4
         {
             if (1 == 1)
             {
-                menuStrip1.BackColor = Color.Black;
-                menuStrip1.ForeColor = Color.White;
+                menuStrip.BackColor = Color.Black;
+                menuStrip.ForeColor = Color.White;
                 projectTree.BackColor = Color.Black;
                 projectTree.ForeColor = Color.White;
                 textBox4.BackColor = Color.Black;
@@ -364,8 +364,8 @@ namespace Krijn_Text_4
             }
             else
             {
-                menuStrip1.BackColor = Color.White;
-                menuStrip1.ForeColor = Color.Black;
+                menuStrip.BackColor = Color.White;
+                menuStrip.ForeColor = Color.Black;
                 projectTree.BackColor = Color.White;
                 projectTree.ForeColor = Color.Black;
                 textBox4.BackColor = Color.White;
@@ -383,6 +383,11 @@ namespace Krijn_Text_4
         private void openProjectFolderToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             mthdOpenProjectFolder();
+        }
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
