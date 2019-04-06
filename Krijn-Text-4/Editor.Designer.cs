@@ -175,7 +175,6 @@
             this.openProjectFolderToolStripMenuItem1});
             this.treeContextMenu.Name = "contextMenuStrip1";
             this.treeContextMenu.Size = new System.Drawing.Size(255, 26);
-            this.treeContextMenu.Opening += new System.ComponentModel.CancelEventHandler(this.treeContextMenu_Opening);
             // 
             // openProjectFolderToolStripMenuItem1
             // 

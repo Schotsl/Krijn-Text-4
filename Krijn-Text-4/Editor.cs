@@ -382,10 +382,6 @@ namespace Krijn_Text_4
             }
         }
 
-        private void treeContextMenu_Opening(object sender, CancelEventArgs e)
-        {
-        }
-
         private void openProjectFolderToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             mthdOpenProjectFolder();
