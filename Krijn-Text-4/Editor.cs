@@ -32,14 +32,9 @@ namespace Krijn_Text_4
         public Editor()
         {
             InitializeComponent();
-            textArea.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Text = Application.ProductVersion;
 
             updater = new SharpUpdater(Assembly.GetExecutingAssembly(), this, new Uri("https://krijn.serialpowered.com/ProjectFiles/update.xml"));
-
-            //Load languages if language directory exists
-            if (Directory.Exists("languages/")) loadLanguages();
-            else downloadLanguages();
 
         }
 
@@ -389,6 +384,10 @@ namespace Krijn_Text_4
         private void Editor_Load(object sender, EventArgs e)
         {
             loadSettings();
+
+            //Load languages if language directory exists
+            if (Directory.Exists("languages/")) loadLanguages();
+            else downloadLanguages();
         }
 
         private void changeThemeToolStripMenuItem_Click(object sender, EventArgs e)
