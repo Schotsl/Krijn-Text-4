@@ -1,0 +1,186 @@
+[1mdiff --git a/Krijn-Text-4/Editor.Designer.cs b/Krijn-Text-4/Editor.Designer.cs[m
+[1mindex fac9d3a..c9f7eab 100644[m
+[1m--- a/Krijn-Text-4/Editor.Designer.cs[m
+[1m+++ b/Krijn-Text-4/Editor.Designer.cs[m
+[36m@@ -39,24 +39,27 @@[m [mprivate void InitializeComponent()[m
+             this.addProjectFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();[m
+             this.languagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();[m
+             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();[m
+[32m+[m[32m            this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();[m[41m[m
+             this.projectTree = new System.Windows.Forms.TreeView();[m
+             this.projectTreeContextMenu = new MetroFramework.Controls.MetroContextMenu(this.components);[m
+             this.openProjectFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();[m
+             this.textBox4 = new System.Windows.Forms.TextBox();[m
+[31m-            this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();[m
+             this.menuStrip1.SuspendLayout();[m
+             this.projectTreeContextMenu.SuspendLayout();[m
+             this.SuspendLayout();[m
+             // [m
+             // textArea[m
+             // [m
+[32m+[m[32m            this.textArea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)[m[41m [m
+[32m+[m[32m            | System.Windows.Forms.AnchorStyles.Left)[m[41m [m
+[32m+[m[32m            | System.Windows.Forms.AnchorStyles.Right)));[m[41m[m
+             this.textArea.BackColor = System.Drawing.SystemColors.Window;[m
+[31m-            this.textArea.Location = new System.Drawing.Point(221, 117);[m
+[31m-            this.textArea.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);[m
+[31m-            this.textArea.MaximumSize = new System.Drawing.Size(1332, 1230);[m
+[31m-            this.textArea.MinimumSize = new System.Drawing.Size(880, 434);[m
+[32m+[m[32m            this.textArea.Location = new System.Drawing.Point(166, 95);[m[41m[m
+[32m+[m[32m            this.textArea.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);[m[41m[m
+[32m+[m[32m            this.textArea.MaximumSize = new System.Drawing.Size(15360, 4320);[m[41m[m
+[32m+[m[32m            this.textArea.MinimumSize = new System.Drawing.Size(153, 43);[m[41m[m
+             this.textArea.Name = "textArea";[m
+[31m-            this.textArea.Size = new System.Drawing.Size(880, 434);[m
+[32m+[m[32m            this.textArea.Size = new System.Drawing.Size(661, 353);[m[41m[m
+             this.textArea.TabIndex = 0;[m
+             this.textArea.Text = "";[m
+             this.textArea.TextChanged += new System.EventHandler(this.textArea_TextChanged);[m
+[36m@@ -70,10 +73,9 @@[m [mprivate void InitializeComponent()[m
+             this.projectToolStripMenuItem,[m
+             this.languagesToolStripMenuItem,[m
+             this.helpToolStripMenuItem});[m
+[31m-            this.menuStrip1.Location = new System.Drawing.Point(27, 74);[m
+[32m+[m[32m            this.menuStrip1.Location = new System.Drawing.Point(20, 60);[m[41m[m
+             this.menuStrip1.Name = "menuStrip1";[m
+[31m-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);[m
+[31m-            this.menuStrip1.Size = new System.Drawing.Size(1075, 28);[m
+[32m+[m[32m            this.menuStrip1.Size = new System.Drawing.Size(807, 24);[m[41m[m
+             this.menuStrip1.TabIndex = 4;[m
+             this.menuStrip1.Text = "menuStrip1";[m
+             // [m
+[36m@@ -83,14 +85,14 @@[m [mprivate void InitializeComponent()[m
+             this.openToolStripMenuItem,[m
+             this.saveToolStripMenuItem});[m
+             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";[m
+[31m-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);[m
+[32m+[m[32m            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);[m[41m[m
+             this.fileToolStripMenuItem.Text = "File";[m
+             // [m
+             // openToolStripMenuItem[m
+             // [m
+             this.openToolStripMenuItem.Name = "openToolStripMenuItem";[m
+             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));[m
+[31m-            this.openToolStripMenuItem.Size = new System.Drawing.Size(173, 26);[m
+[32m+[m[32m            this.openToolStripMenuItem.Size = new System.Drawing.Size(146, 22);[m[41m[m
+             this.openToolStripMenuItem.Text = "Open";[m
+             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);[m
+             // [m
+[36m@@ -98,7 +100,7 @@[m [mprivate void InitializeComponent()[m
+             // [m
+             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";[m
+             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));[m
+[31m-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(173, 26);[m
+[32m+[m[32m            this.saveToolStripMenuItem.Size = new System.Drawing.Size(146, 22);[m[41m[m
+             this.saveToolStripMenuItem.Text = "Save";[m
+             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);[m
+             // [m
+[36m@@ -107,7 +109,7 @@[m [mprivate void InitializeComponent()[m
+             this.projectToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {[m
+             this.addProjectFolderToolStripMenuItem});[m
+             this.projectToolStripMenuItem.Name = "projectToolStripMenuItem";[m
+[31m-            this.projectToolStripMenuItem.Size = new System.Drawing.Size(67, 24);[m
+[32m+[m[32m            this.projectToolStripMenuItem.Size = new System.Drawing.Size(56, 20);[m[41m[m
+             this.projectToolStripMenuItem.Text = "Project";[m
+             // [m
+             // addProjectFolderToolStripMenuItem[m
+[36m@@ -115,14 +117,14 @@[m [mprivate void InitializeComponent()[m
+             this.addProjectFolderToolStripMenuItem.Name = "addProjectFolderToolStripMenuItem";[m
+             this.addProjectFolderToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) [m
+             | System.Windows.Forms.Keys.O)));[m
+[31m-            this.addProjectFolderToolStripMenuItem.Size = new System.Drawing.Size(301, 26);[m
+[32m+[m[32m            this.addProjectFolderToolStripMenuItem.Size = new System.Drawing.Size(247, 22);[m[41m[m
+             this.addProjectFolderToolStripMenuItem.Text = "Add Project Folder";[m
+             this.addProjectFolderToolStripMenuItem.Click += new System.EventHandler(this.addProjectFolderToolStripMenuItem_Click);[m
+             // [m
+             // languagesToolStripMenuItem[m
+             // [m
+             this.languagesToolStripMenuItem.Name = "languagesToolStripMenuItem";[m
+[31m-            this.languagesToolStripMenuItem.Size = new System.Drawing.Size(92, 24);[m
+[32m+[m[32m            this.languagesToolStripMenuItem.Size = new System.Drawing.Size(76, 20);[m[41m[m
+             this.languagesToolStripMenuItem.Text = "Languages";[m
+             // [m
+             // helpToolStripMenuItem[m
+[36m@@ -130,16 +132,24 @@[m [mprivate void InitializeComponent()[m
+             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {[m
+             this.checkForUpdatesToolStripMenuItem});[m
+             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";[m
+[31m-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);[m
+[32m+[m[32m            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);[m[41m[m
+             this.helpToolStripMenuItem.Text = "Help";[m
+             // [m
+[32m+[m[32m            // checkForUpdatesToolStripMenuItem[m[41m[m
+[32m+[m[32m            //[m[41m [m
+[32m+[m[32m            this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";[m[41m[m
+[32m+[m[32m            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(173, 22);[m[41m[m
+[32m+[m[32m            this.checkForUpdatesToolStripMenuItem.Text = "Check For Updates";[m[41m[m
+[32m+[m[32m            this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdatesToolStripMenuItem_Click_1);[m[41m[m
+[32m+[m[32m            //[m[41m [m
+             // projectTree[m
+             // [m
+[32m+[m[32m            this.projectTree.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)[m[41m [m
+[32m+[m[32m            | System.Windows.Forms.AnchorStyles.Left)));[m[41m[m
+             this.projectTree.ContextMenuStrip = this.projectTreeContextMenu;[m
+[31m-            this.projectTree.Location = new System.Drawing.Point(27, 117);[m
+[31m-            this.projectTree.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);[m
+[32m+[m[32m            this.projectTree.Location = new System.Drawing.Point(20, 95);[m[41m[m
+             this.projectTree.Name = "projectTree";[m
+[31m-            this.projectTree.Size = new System.Drawing.Size(187, 400);[m
+[32m+[m[32m            this.projectTree.Size = new System.Drawing.Size(141, 326);[m[41m[m
+             this.projectTree.TabIndex = 5;[m
+             this.projectTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.projectTree_AfterSelect);[m
+             // [m
+[36m@@ -149,35 +159,28 @@[m [mprivate void InitializeComponent()[m
+             this.projectTreeContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {[m
+             this.openProjectFolderToolStripMenuItem});[m
+             this.projectTreeContextMenu.Name = "projectTreeContextMenu";[m
+[31m-            this.projectTreeContextMenu.Size = new System.Drawing.Size(211, 28);[m
+[32m+[m[32m            this.projectTreeContextMenu.Size = new System.Drawing.Size(180, 26);[m[41m[m
+             // [m
+             // openProjectFolderToolStripMenuItem[m
+             // [m
+             this.openProjectFolderToolStripMenuItem.Name = "openProjectFolderToolStripMenuItem";[m
+[31m-            this.openProjectFolderToolStripMenuItem.Size = new System.Drawing.Size(210, 24);[m
+[32m+[m[32m            this.openProjectFolderToolStripMenuItem.Size = new System.Drawing.Size(179, 22);[m[41m[m
+             this.openProjectFolderToolStripMenuItem.Text = "Open Project Folder";[m
+             this.openProjectFolderToolStripMenuItem.Click += new System.EventHandler(this.openProjectFolderToolStripMenuItem_Click);[m
+             // [m
+             // textBox4[m
+             // [m
+[31m-            this.textBox4.Location = new System.Drawing.Point(27, 526);[m
+[31m-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);[m
+[32m+[m[32m            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));[m[41m[m
+[32m+[m[32m            this.textBox4.Location = new System.Drawing.Point(20, 427);[m[41m[m
+             this.textBox4.Name = "textBox4";[m
+[31m-            this.textBox4.Size = new System.Drawing.Size(187, 22);[m
+[32m+[m[32m            this.textBox4.Size = new System.Drawing.Size(141, 20);[m[41m[m
+             this.textBox4.TabIndex = 9;[m
+             // [m
+[31m-            // checkForUpdatesToolStripMenuItem[m
+[31m-            // [m
+[31m-            this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";[m
+[31m-            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(216, 26);[m
+[31m-            this.checkForUpdatesToolStripMenuItem.Text = "Check For Updates";[m
+[31m-            this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdatesToolStripMenuItem_Click_1);[m
+[31m-            // [m
+             // Editor[m
+             // [m
+[31m-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);[m
+[32m+[m[32m            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);[m[41m[m
+             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;[m
+[31m-            this.ClientSize = new System.Drawing.Size(1129, 566);[m
+[32m+[m[32m            this.ClientSize = new System.Drawing.Size(847, 460);[m[41m[m
+             this.Controls.Add(this.textBox4);[m
+             this.Controls.Add(this.projectTree);[m
+             this.Controls.Add(this.textArea);[m
+[36m@@ -185,9 +188,8 @@[m [mprivate void InitializeComponent()[m
+             this.ForeColor = System.Drawing.SystemColors.ControlLight;[m
+             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));[m
+             this.MainMenuStrip = this.menuStrip1;[m
+[31m-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);[m
+[32m+[m[32m            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);[m[41m[m
+             this.Name = "Editor";[m
+[31m-            this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);[m
+             this.Text = "Krijn";[m
+             this.TransparencyKey = System.Drawing.Color.LightGreen;[m
+             this.menuStrip1.ResumeLayout(false);[m

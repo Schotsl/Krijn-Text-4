@@ -9,16 +9,13 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
-using MetroFramework;
-using MetroFramework.Forms;
-using MetroFramework.Drawing;
-using MetroFramework.Interfaces;
 using SharpUpdate;
 using System.Reflection;
+using System.Net;
 
 namespace Krijn_Text_4
 {
-    public partial class Editor : MetroFramework.Forms.MetroForm 
+    public partial class Editor : Form
     {
         private SharpUpdater updater;
         public static int predirectMatch;
@@ -28,43 +25,73 @@ namespace Krijn_Text_4
         public static string treeViewDirectory = String.Empty;
         public static string nodeStructureDirectory = String.Empty;
 
+        bool darkMode = false;
+
         public static List<string> loadedLanguage = new List<string>();
         
         public Editor()
         {
             InitializeComponent();
             textArea.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            metroLabel5.Text = Application.ProductVersion;
+            this.Text = Application.ProductVersion;
 
             updater = new SharpUpdater(Assembly.GetExecutingAssembly(), this, new Uri("https://krijn.serialpowered.com/update.xml"));
 
+            //Load languages if language directory exists
+            if (Directory.Exists("languages/")) loadLanguages();
+            else downloadLanguages();
 
-            if (Directory.Exists("languages/"))
-            {
-                string[] languages = Directory.GetFiles(@"languages/");
-
-                foreach (string filePath in languages)
-                {
-                    //Get file name withouth path
-                    var sections = filePath.Split('/');
-                    var fileName = sections[sections.Length - 1];
-
-                    //Create menu item
-                    var tempLanguage = new ToolStripMenuItem();
-                    tempLanguage.CheckedChanged += new System.EventHandler(this.languagesToolStripMenuItem_CheckedChanged);
-                    tempLanguage.CheckOnClick = true;
-                    tempLanguage.Name = filePath;
-                    tempLanguage.Text = fileName;
-
-                    //Add menu item to dropdown menu
-                    languagesToolStripMenuItem.DropDownItems.Add(tempLanguage);
-                }
-            }
         }
 
 
 
         // ###################### #############################
+
+        public void downloadLanguages()
+        {
+            using (WebClient client = new WebClient())
+            {
+                MessageBox.Show("Installing new language packs");
+
+                //Load language packs from website
+                string HTML = client.DownloadString("https://krijn.serialpowered.com/languages/HTML");
+
+                //Create language directory
+                Directory.CreateDirectory(@"languages/");
+
+                //Save file in directory
+                using (StreamWriter streamWriter = new StreamWriter(@"languages/HTML"))
+                {
+                    streamWriter.Write(HTML);
+                }
+
+                MessageBox.Show("Language packs have been installed!");
+
+                loadLanguages();
+            }
+        }
+
+        public void loadLanguages()
+        {
+            string[] languages = Directory.GetFiles(@"languages/");
+
+            foreach (string filePath in languages)
+            {
+                //Get file name withouth path
+                var sections = filePath.Split('/');
+                var fileName = sections[sections.Length - 1];
+
+                //Create menu item
+                var tempLanguage = new ToolStripMenuItem();
+                tempLanguage.CheckedChanged += new System.EventHandler(this.languagesToolStripMenuItem_CheckedChanged);
+                tempLanguage.CheckOnClick = true;
+                tempLanguage.Name = filePath;
+                tempLanguage.Text = fileName;
+
+                //Add menu item to dropdown menu
+                languagesToolStripMenuItem.DropDownItems.Add(tempLanguage);
+            }
+        }
 
         // Method to add project folder
         public void mthdOpenProjectFolder()
@@ -76,6 +103,20 @@ namespace Krijn_Text_4
                 treeViewDirectory = fbd.SelectedPath;
             }
             projectTree.ExpandAll();
+        }
+
+        public void saveSettings()
+        {
+            Properties.Settings.Default.Theme = darkMode;
+
+            //Forces the app to save a settings. DONT EVER REMOVE.
+            Properties.Settings.Default.Save();
+        }
+
+        public void loadSettings()
+        {
+            darkMode = Properties.Settings.Default.Theme;
+            mthdThemeSettings();
         }
 
         private void ListDirectory(TreeView treeView, string path)
@@ -149,9 +190,35 @@ namespace Krijn_Text_4
             }
         }
 
-        public void mthdFilePath()
+        //Method to set/save the theme choice
+        public void mthdThemeSettings()
         {
-
+            if (darkMode == true)
+            {
+                menuStrip.BackColor = Color.FromArgb(75, 75, 75);
+                menuStrip.ForeColor = Color.White;
+                projectTree.BackColor = Color.FromArgb(75, 75, 75);
+                projectTree.ForeColor = Color.White;
+                textBox4.BackColor = Color.FromArgb(75, 75, 75);
+                textBox4.ForeColor = Color.White;
+                textArea.BackColor = Color.FromArgb(75, 75, 75);
+                textArea.ForeColor = Color.White;
+                this.BackColor = Color.FromArgb(75, 75, 75);
+                saveSettings();
+            }
+            else
+            {
+                menuStrip.BackColor = Color.FromKnownColor(KnownColor.Control);
+                menuStrip.ForeColor = Color.Black;
+                projectTree.BackColor = Color.White;
+                projectTree.ForeColor = Color.Black;
+                textBox4.BackColor = Color.White;
+                textBox4.ForeColor = Color.Black;
+                textArea.BackColor = Color.White;
+                textArea.ForeColor = Color.Black;
+                this.BackColor = Color.FromKnownColor(KnownColor.Control);
+                saveSettings();
+            }
         }
 
         // ################################# Code for visual items ########################################
@@ -321,19 +388,49 @@ namespace Krijn_Text_4
 
         private void Editor_Load(object sender, EventArgs e)
         {
-            this.StyleManager = metroStyleManager;
+            loadSettings();
         }
 
         private void changeThemeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (metroStyleManager.Theme == MetroFramework.MetroThemeStyle.Light)
+            if (darkMode == false)
             {
-                metroStyleManager.Theme = MetroFramework.MetroThemeStyle.Dark;
+                menuStrip.BackColor = Color.FromArgb(75, 75, 75);
+                menuStrip.ForeColor = Color.White;
+                projectTree.BackColor = Color.FromArgb(75, 75, 75);
+                projectTree.ForeColor = Color.White;
+                textBox4.BackColor = Color.FromArgb(75, 75, 75);
+                textBox4.ForeColor = Color.White;
+                textArea.BackColor = Color.FromArgb(75, 75, 75);
+                textArea.ForeColor = Color.White;
+                this.BackColor = Color.FromArgb(75, 75, 75); 
+                darkMode = true;
+                saveSettings();
             }
-            else
+            else if (darkMode == true)
             {
-                metroStyleManager.Theme = MetroFramework.MetroThemeStyle.Light;
+                menuStrip.BackColor = Color.FromKnownColor(KnownColor.Control);
+                menuStrip.ForeColor = Color.Black;
+                projectTree.BackColor = Color.White;
+                projectTree.ForeColor = Color.Black;
+                textBox4.BackColor = Color.White;
+                textBox4.ForeColor = Color.Black;
+                textArea.BackColor = Color.White;
+                textArea.ForeColor = Color.Black;
+                this.BackColor = Color.FromKnownColor(KnownColor.Control);
+                darkMode = false;
+                saveSettings();
             }
+        }
+
+        private void openProjectFolderToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            mthdOpenProjectFolder();
+        }
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
