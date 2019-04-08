@@ -35,7 +35,7 @@ namespace Krijn_Text_4
             textArea.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Text = Application.ProductVersion;
 
-            updater = new SharpUpdater(Assembly.GetExecutingAssembly(), this, new Uri("https://krijn.serialpowered.com/update.xml"));
+            updater = new SharpUpdater(Assembly.GetExecutingAssembly(), this, new Uri("https://krijn.serialpowered.com/ProjectFiles/update.xml"));
 
             //Load languages if language directory exists
             if (Directory.Exists("languages/")) loadLanguages();
@@ -54,7 +54,7 @@ namespace Krijn_Text_4
                 MessageBox.Show("Installing new language packs");
 
                 //Load language packs from website
-                string HTML = client.DownloadString("https://krijn.serialpowered.com/languages/HTML");
+                string HTML = client.DownloadString("https://krijn.serialpowered.com/ProjectFiles/languages/HTML");
 
                 //Create language directory
                 Directory.CreateDirectory(@"languages/");
