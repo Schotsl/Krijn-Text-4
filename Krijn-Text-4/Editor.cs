@@ -431,5 +431,10 @@ namespace Krijn_Text_4
         {
             this.Close();
         }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
