@@ -97,7 +97,6 @@ namespace Krijn_Text_4
                 ListDirectory(projectTree, fbd.SelectedPath);
                 treeViewDirectory = fbd.SelectedPath;
             }
-            projectTree.ExpandAll();
         }
 
         public void saveSettings()
