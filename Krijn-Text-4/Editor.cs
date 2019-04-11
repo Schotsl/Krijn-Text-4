@@ -20,6 +20,8 @@ namespace Krijn_Text_4
         private SharpUpdater updater;
         public static int predirectMatch;
         public static int predirectTyped;
+
+        public static string openedFilePath = String.Empty;
         public static string predirectString = String.Empty;
 
         public static string treeViewDirectory = String.Empty;
@@ -138,29 +140,40 @@ namespace Krijn_Text_4
         // Method to save current file
         public void mthdSaveFile()
         {
-            SaveFileDialog saveFileDialogFunction = new SaveFileDialog();
-
-            try
+            if (openedFilePath.Length > 0)
             {
-                if (saveFileDialogFunction.ShowDialog() == DialogResult.OK)
+                using (Stream save = File.Open(openedFilePath, FileMode.Create))
+                using (StreamWriter sw = new StreamWriter(save))
                 {
-                    if (File.Exists(saveFileDialogFunction.FileName))
+                    sw.Write(textArea.Text);
+                }
+            }
+            else
+            {
+                SaveFileDialog saveFileDialogFunction = new SaveFileDialog();
+
+                try
+                {
+                    if (saveFileDialogFunction.ShowDialog() == DialogResult.OK)
                     {
-                        File.WriteAllText(saveFileDialogFunction.FileName, textArea.Text);
-                    }
-                    else if (!File.Exists(saveFileDialogFunction.FileName))
-                    {
-                        using (Stream save = File.Open(saveFileDialogFunction.FileName, FileMode.CreateNew))
-                        using (StreamWriter sw = new StreamWriter(save))
+                        if (File.Exists(saveFileDialogFunction.FileName))
                         {
-                            sw.Write(textArea.Text);
+                            File.WriteAllText(saveFileDialogFunction.FileName, textArea.Text);
+                        }
+                        else if (!File.Exists(saveFileDialogFunction.FileName))
+                        {
+                            using (Stream save = File.Open(saveFileDialogFunction.FileName, FileMode.CreateNew))
+                            using (StreamWriter sw = new StreamWriter(save))
+                            {
+                                sw.Write(textArea.Text);
+                            }
                         }
                     }
                 }
-            }
-            catch (System.ComponentModel.Win32Exception)
-            {
-                MessageBox.Show("Failed to save file. please try again.");
+                catch (System.ComponentModel.Win32Exception)
+                {
+                    MessageBox.Show("Failed to save file. please try again.");
+                }
             }
         }
         
@@ -355,11 +368,11 @@ namespace Krijn_Text_4
                 Recursion(e.Node);
 
                 //Generate file name with directory then remove extra '\' from the string
-                string strFileName = treeViewDirectory + "\\" + nodeStructureDirectory;
-                strFileName = strFileName.Remove(strFileName.Length - 1);
+                openedFilePath = treeViewDirectory + "\\" + nodeStructureDirectory;
+                openedFilePath = openedFilePath.Remove(openedFilePath.Length - 1);
 
                 //Load and insert file
-                string fileText = File.ReadAllText(strFileName);
+                string fileText = File.ReadAllText(openedFilePath);
                 textArea.Text = fileText;
             }
             catch (System.ComponentModel.Win32Exception)
